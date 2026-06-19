@@ -1,0 +1,1671 @@
+/* ==========================================================================
+Mixin
+========================================================================= */
+
+/* Define devices for reponsive */
+@mixin lg-monitor {
+  
+  @media screen and (max-width: 1200px){
+    @content;
+  }
+}
+@mixin md-monitor {
+  
+  @media screen and (max-width: 991px){
+    @content;
+  }
+}
+@mixin sm-monitor {
+  
+  @media screen and (max-width: 767px){
+    @content;
+  }
+}
+@mixin xs-monitor {
+  
+  @media screen and (max-width: 575px){
+    @content;
+  }
+}
+
+/* Overlay background generator */
+@mixin bg-image($image, $size) {
+  background: $image;
+  background-size: $size;
+}
+
+/* ==========================================================================
+Common
+========================================================================== */
+
+/* color */
+$white: #fff;
+$black: #000;
+$blue: #00007e;
+$navy: #000038;
+$d-navy: #04040a;
+$l-gray: #eee;
+$d-gray: #b3b3b3;
+
+/* error messages */
+.warn {
+  color: red;
+}
+ul#errors {
+  text-align: center;
+  list-style: none;
+  margin-left: 0;
+}
+.error-box {
+  color: red;
+  text-align: center;
+}
+/* Step image container set up */
+.step-icon-container {
+  padding: 25px;
+  img {
+    width: 100%;
+    
+    // Small icons for mobile
+    &.sm-icon {
+      display: none;
+    }
+    @include sm-monitor() {
+      // Hide large icons for mobile
+      &.lg-icon {
+        display: none;
+      }
+      // Display small icons for mobile
+      &.sm-icon {
+        display: block;
+      }
+    }
+  }  
+} 
+
+/* Button buttom navigation */
+.button-wrap {
+  display: block;
+  text-align: center;
+  br {
+    display: none !important;
+  }
+  
+  .nav-btn {
+    display: inline-block;
+    margin: 30px 30px;
+    border: 0;
+    font-size: 16px;
+    padding: 10px 25px;
+    //text-transform: uppercase;
+    color: white;
+    
+    @include sm-monitor() {
+      margin: 15px;
+    }
+  }
+}
+
+/* background-color */
+.bg-navy {
+  background-color: $navy;
+}
+.bg-d-navy {
+  background-color: $d-navy;
+}
+.bg-l-gray {
+  background-color: $l-gray !important;
+}
+.bg-white {
+  background-color: white;
+}
+.bg-black {
+  background-color: black;
+}
+
+/* Font weight */
+$regular: 400;
+$s-bold: 600;
+$bold: 700;
+
+/* Font family */
+$lora: 'Lora', serif;
+$sans: 'Open Sans', sans-serif;
+
+/* Font size */
+.f-14 {
+  font-size: 14px;
+}
+
+/* Text Align */ 
+.align-right {
+  text-align: right;
+}
+.align-center {
+  text-align: center;
+}
+
+/*padding*/
+.pt-25 {
+  padding-top: 25px;
+}
+
+/*margin*/
+.mL25 {
+  margin-left: 25px;
+}
+.mB5 {
+  margin-bottom: 5px;
+}
+.clear {
+  clear: both;
+}
+
+.catering-head2 {
+  @include sm-monitor() {
+    line-height: 1.0 !important;
+    font-size: 70px !important;
+    margin-top: 86px !important;
+  }
+  @include xs-monitor() {
+    line-height: 1.0 !important;
+    font-size: 50px !important;
+    margin-top: 95px !important;
+  }
+  
+  br{
+    @include sm-monitor() {
+      display: block !important;
+    }
+  }
+}
+
+/* ==========================================================================
+First Page
+========================================================================== */
+#main-sub-header {
+  text-align: center;
+  margin-bottom: 50px;
+  
+  @include md-monitor() {
+    margin-bottom: 35px;
+  }
+  @include sm-monitor() {
+    text-align: left;
+    margin-bottom: 75px;
+  }
+  h1 {
+    font: {
+      family: $lora;
+      size: 35px;
+    }
+    margin-bottom: 20px;
+    
+    @include sm-monitor() {
+      margin-bottom: 25px;
+    }
+  }
+  hr {
+    border-top: 2px solid black;
+    width: 15%;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    
+    @include sm-monitor() {
+     width: 40%;
+     margin: inherit;
+     margin-bottom: 25px;
+    }
+  }
+  p {
+    font-size: 16px;
+  }
+} 
+
+.two-columns {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  
+  @include lg-monitor() {
+    width: 100%;
+  }
+  
+  @include sm-monitor() {
+    display: block;
+  }
+  
+  .m-adj {
+    margin-top: -25px;
+    @include sm-monitor() {
+      margin-top: 0;
+    }
+  }
+  .column {
+    position: relative;
+    overflow: hidden;
+	 width: 50%;
+	  @include sm-monitor() {
+		  width: 100%;
+	  }
+    
+    figure {
+      position: relative;
+      background: black;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+      
+      img {
+        width: 100%;
+        opacity: 0.8;
+	      -webkit-transition: opacity 0.35s;
+	      transition: opacity 0.35s;
+      }  
+      figcaption {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        h2 {
+	        -webkit-transition: transform 0.35s;
+	        transition: transform 0.35s;
+	        -webkit-transform: translate3d(0,40px,0);
+	        transform: translate3d(0,40px,0);
+          //text-transform: uppercase;
+          font-size: 30px;
+          color: white;
+          padding: {
+            top: 50px;
+            bottom: 25px;
+          } 
+          font-weight: $bold;
+          &.single-line {
+            padding-top: 80px;
+            @include lg-monitor() {
+              padding-top: 125px;
+            }
+            @include md-monitor {
+              padding-top: 101px;
+            }
+            @include sm-monitor {
+              padding-top: 115px;
+            }
+            @include xs-monitor() {
+              padding-top: 27px;
+            }
+          }
+          @include lg-monitor() {
+            padding-top: 103px;
+            font-size: 40px;
+          }
+          @include md-monitor {
+            padding-top: 84px;
+            font-size: 78px;
+            font-size: 40px;
+          }
+          @include sm-monitor() {
+            font-size: 60px;
+            padding-top: 113px;
+          }
+          @include xs-monitor {
+            padding-top: 19px;
+            font-size: 35px;
+          }
+        }
+        a {
+          background-color: $blue !important;
+          //text-transform: uppercase;
+          color: white;
+          text-decoration: none;
+          padding: 7px 25px;
+          opacity: 0;
+          -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	        transition: opacity 0.35s, transform 0.35s;
+          -webkit-transform: translate3d(0,60px,0);
+	        transform: translate3d(0,60px,0);
+          position: relative;
+          z-index: 9999999;
+          @include md-monitor {
+            font-size: 18px;
+          }
+          @include sm-monitor {
+            font-size: 18px;
+          }
+          &:hover {
+            color: $white !important;
+          }
+        }
+      }
+      
+      figcaption:before {
+        position: absolute;
+	      width: 100%;
+	      height: 100%;
+	      top: 0;
+	      left: 0;
+	      background: url(https://www.katsu-yagroup.com/wp-content/themes/rosa_child/catering/img/triangle.svg) no-repeat center center;
+	      background-size: 100% 100%;
+	      content: '';
+	      -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	      transition: opacity 0.35s, transform 0.35s;
+	      -webkit-transform: scale3d(5,2.5,1);
+	      transform: scale3d(5,2.5,1);
+	      -webkit-transform-origin: 50% 50%;
+	      transform-origin: 50% 50%;
+      }
+      
+      &:hover img {
+        opacity: 0.6;
+      }
+      &:hover figcaption:before {
+        opacity: 0.8;
+	      -webkit-transform: scale3d(1,1,1);
+	      transform: scale3d(1,1,1);
+      }
+      &:hover h2 {
+        -webkit-transform: translate3d(0,0,0);
+	      transform: translate3d(0,0,0);
+      }
+      &:hover a {
+        opacity: 1;
+	      -webkit-transform: translate3d(0,0,0);
+	      transform: translate3d(0,0,0);
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+Pick-up Order Page
+========================================================================== */  
+
+.order-container {
+  padding: 25px;
+  width: 100%;
+  
+  @include sm-monitor() {
+    padding: 0;
+    width: 100%;
+  }
+  
+  h3#sub-header {
+    font-weight: $bold;
+    font-size: 26px !important;
+    margin: {
+      bottom: 10px;
+    }
+    text-align: center;
+    span {
+      //text-transform: uppercase;
+      font-size: 35px;
+      padding-right: 20px;
+      color: $navy;
+    }
+  }
+  
+  .menu-container {
+    padding: 25px;
+    width: 100%;
+    display: block;
+    border-collapse: collapse;
+    @include sm-monitor() {
+      display: block;
+      padding: 0;
+      width: 100%;
+    }
+    
+    td {
+      padding: 25px;
+      @include sm-monitor() {
+        display: block;
+        padding: 25px;
+        width: 100%;
+      }
+    }
+    
+    .first-col {
+      //text-transform: uppercase;
+      
+      h4 {
+        font-size: 28px;
+        font-weight: $bold;
+        margin: 0;
+      }
+      
+      p {
+        &.s-title {
+          font-size: 20px;
+          font-weight: $s-bold;
+          margin-bottom: 5px;
+        }
+        &.price {
+          font-size: 20px;
+          margin-top: 10px;
+          margin-bottom: 50px;
+          font-weight: $s-bold;
+          @include sm-monitor() {
+            margin-bottom: 25px;
+          }
+        }
+        &.qty {
+          font-size: 20px;
+          text-align: left !important;
+          margin-bottom: 15px;
+          input {
+            margin-left: 15px;
+            font-size: 18px;
+            border: 0;
+            padding: 7px 15px;
+            width: 100px;
+          }
+        }
+        &.sub-total {
+          font-size: 18px;
+          text-align: left !important;
+          input {
+            background-color: transparent;
+            border: 0px;
+            font-size: 18px;
+            @include sm-monitor() {
+              font-size: 25px;
+              width: 200px;
+            }
+          }
+        }
+        &.error2, &.error4 {
+          margin-bottom: 0 !important;
+        }
+      }
+    }
+    .second-col {
+      ul, ol, dd {
+        padding: 15px;
+        margin-left: 0 !important;
+        
+        li {
+          font-size: 16px;
+           padding-bottom: 7px;
+          @include sm-monitor() {
+            font-size: 18px;
+          }
+         }
+      }
+      p {
+        //text-transform: uppercase;
+        font-size: 18px;
+        margin-bottom: 0px !important;
+        
+        &.crab {
+          font-size: 14px;
+          text-align: left !important;
+        }
+        
+        &.error1, &.error3 {
+          color: red;
+          //text-transform: uppercase;
+          font-size: 16px !important;
+        }
+      }
+      
+      h5 {
+        font-weight: $s-bold;
+        font-size: 24px;
+        margin-bottom: 15px;
+        letter-spacing: 0;
+        span {
+          font-weight: $regular;
+          font-size: 14px;
+        }
+      }
+      input {
+        border: 0;
+        font-size: 18px;
+        margin-left: 15px;
+        margin-bottom: 7px;
+        width: 50px;
+        padding: 10px;
+      }
+      table.item-select {
+        width: 100%;
+        @include sm-monitor() {
+          display: table;
+        }
+        tr {
+          td {
+            padding: 0 !important;
+            font-size: 16px;
+            &:first-child {
+              width: 70%;
+            }
+            &:second-child {
+              width: 30%;
+            }
+            @include sm-monitor() {
+              display: table-cell;
+            }
+          }
+        }
+      }
+    }
+    .third-col {
+      width: 33%;
+      @include sm-monitor() {
+        width: 100%;
+      }
+      img {
+        width: 100%;
+        @include sm-monitor() {
+          width: 100%;
+        }
+      }
+    }
+  }
+  h5 {
+    &.grand-total {
+      font-size: 30px;
+      text-align: center;
+      //text-transform: uppercase;
+      font-weight: $s-bold;
+      margin: 25px;
+      letter-spacing: 0 !important;
+      
+      br {
+        display: none;
+        @include sm-monitor() {
+          display: block;
+        }
+      }
+      
+      input {
+        border: 0;
+        font-size: 30px;
+        padding-right: 15px;
+        text-align: right;
+      }
+      @include sm-monitor() {
+        font-size: 24px;
+        input {
+          width: 110px;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+Catering Order Page
+========================================================================== */  
+#catering-step1 {
+  padding:  {
+    top: 35px;
+    bottom: 35px;
+  }
+  h2.sub-header {
+    //text-transform: uppercase;
+    font-size: 35px;
+    text-align: center;
+    font-weight: $bold;
+  }
+  
+  #plan-container {
+    max-width: 800px;
+    display: block;
+    margin: 50px auto;
+    background: url('https://www.katsu-yagroup.com/wp-content/themes/rosa_child/catering/img/catering_top.jpg') center center no-repeat;
+    background-size: cover;
+    
+    .m-adjust {
+      @include sm-monitor() {
+        margin-top: -24px;
+      }
+    }
+    
+    .flex-wrap {
+      display: flex;
+      flex-direction: row;
+      
+      @include sm-monitor() {
+        display: block;
+        width: 100%;
+      }
+      
+      .box {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        color: white;
+        padding: 25px;
+        cursor: pointer;
+        
+        @include sm-monitor() {
+          display: block;
+          width: 100%;
+          padding: {
+            top: 25px;
+            bottom: 25px;
+            right: 0;
+            left: 0;
+          };
+        }
+        
+        h3.plan-name {
+          font-size: 50px !important;
+          color: $white;
+          font-weight: $bold;
+          margin-bottom: 0 !important;
+        }
+        h4 {
+          font-size: 25px;
+          font-weight: $s-bold;
+          //text-transform: uppercase;
+          color: $white;
+          margin: {
+            top: 0 !important;
+            bottom: 15px !important;
+          } 
+        }
+        ul {
+          list-style: none;
+          padding: {
+            top: 15px;
+            bottom: 15px;
+          }
+          margin: {
+            left: 0 !important;
+            bottom: 0 !important;
+          } 
+          li {
+            font-size: 20px;
+            //text-transform: uppercase;
+            padding: {
+              bottom: 5px;
+            }
+          }
+        }
+      }
+      .box-black {
+        background-color: rgba($black, .7);
+      }
+      .box-changable-black {
+        background-color: rgba($black, .7);
+        
+        @include sm-monitor() {
+          background-color: rgba($d-navy, .5);
+        }
+      }
+      .box-changable-navy {
+        background-color: rgba($d-navy, .5);
+        
+        @include sm-monitor() {
+          background-color: rgba($black, .7);
+        }
+      }
+      .box-navy {
+        background-color: rgba($d-navy, .5);
+      }
+    }
+  }
+}
+
+#catering-step2 {
+  position: relative;
+  h2 {
+    //text-transform: uppercase;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: $bold;
+  }
+  p {
+    font-size: 18px;
+  }
+  p#sub {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 16px;
+  }
+  
+  .plan-header {
+    color: white;
+    padding: {
+      top: 15px;
+      bottom: 1px;
+    }
+    margin-bottom: -22px;
+    text-align: center;
+    
+    h3#plan {
+      //text-transform: uppercase;
+      font-size: 24px !important;
+      color: $white;
+      margin-bottom: 0 !important;
+    }
+  }
+  .select-container {
+    padding: 25px;
+    
+    h3.step-name {
+      font-size: 24px !important;
+      margin-bottom: 35px;
+      font-weight: $bold;
+      span {
+        font-size: 60px;
+        padding: 10px;
+        color: $navy;
+        @include sm-monitor() {
+          display: block;
+        }
+      }
+    }
+    table {
+      width: 100%;
+      //text-transform: uppercase;
+      
+      @include lg-monitor() {
+          width: 100%;
+        }
+      
+      tr {
+        &:nth-child(odd) {
+          background-color: transparent !important;
+        }
+          /*
+          input[type=checkbox] {
+            -ms-transform: scale(2.0, 2.0);
+            -webkit-transform: scale(2.0, 2.0);
+            transform: scale(1.5, 1.5);
+            display: inline-block;
+          }
+          label {
+            display: inline-block;
+            font-size: 20px;
+            letter-spacing: 1px;
+            margin-left: 25px;
+          }
+          */
+          label {
+	          padding-left:		38px;			/* ラベルの位置 */
+	          font-size:		20px;
+            letter-spacing: 1px;
+	          line-height:		32px;
+	          display:		inline-block;
+	          cursor:			pointer;
+	          position:		relative;
+          }
+          label:before {
+	          content:	'';
+	          width:	25px;			/* ボックスの横幅 */
+	          height:	25px;			/* ボックスの縦幅 */
+	          display:	inline-block;
+	          position:	absolute;
+	          left:	0;
+            top: 3px;
+	          background-color:	#fff;
+            border: 1px solid #d8d8d8;
+	          border-radius:		6px 6px 6px 6px;
+          }
+          input[type=checkbox] {
+	          display:		none;
+          }
+          input[type=checkbox]:checked + label:before {
+	          content:		'\2713';		/* チェックの文字 */ 
+	          font-size: 24px;			/* チェックのサイズ */
+	          color: black;			/* チェックの色 */
+          }
+        }
+      &.three-row {
+        td {
+          width: 33%;
+          vertical-align: top;
+          @include sm-monitor() {
+            width: 100%;
+            display: block;
+          }
+        }
+      }
+      &.two-row {
+        td {
+          width: 50%;
+          vertical-align: top;
+          @include sm-monitor() {
+            width: 100%;
+            display: block;
+          }
+        }
+        span {
+          &.tt {
+            font-size: 10px;
+            position: relative;
+            top: -9px;
+            font-weight: $s-bold;
+          }
+        }
+        ul {
+          text-align: center;
+          margin-top: 15px;
+          margin-left: 0;
+          font-size: 16px;
+          @include sm-monitor() {
+            text-align: left;
+          }
+        }
+      }
+      
+      /*
+      td {
+        padding: 10px;
+        width: 30%;
+        @include md-monitor() {
+          display: block;
+          width: 70%;
+          float: left;
+        }
+         @include sm-monitor() {
+          display: block;
+          float: left;
+        }
+        @include xs-monitor() {
+          display: block;
+          float: left;
+        }
+        */
+        /*
+        &.qty-box {
+          width: 20%;
+          p {
+            display: inline-block;
+            @include sm-monitor() {
+              font-size: 14px;
+            }
+          }
+          @include md-monitor() {
+            display: block;
+            width: 30%;
+            float: left;
+          }
+          input[type=checkbox] {
+            -ms-transform: scale(2.0, 2.0);
+            -webkit-transform: scale(2.0, 2.0);
+            transform: scale(1.5, 1.5);
+          }
+        }
+        */
+        /*
+        p {
+          font-size: 20px;
+          margin-right: 15px;
+          &.f-sm {
+            font-size: 14px;
+            margin-bottom: 0 !important;
+          }
+          
+          span {
+            &.tt {
+              font-size: 10px;
+              position: relative;
+              top: -9px;
+              font-weight: $s-bold;
+            }
+          }
+        }
+        */
+        /*
+        input {
+          padding: 10px 10px;
+          border: 0;
+          margin: {
+            right: 35px;
+            left: 10px;
+          }
+          font-size: 16px;
+          width: 50px;
+          display: inline-block;
+        }
+        
+      }*/
+    }
+    /*
+    &#creation-table {
+      td {
+         @include lg-monitor(){
+           width: calc(90% - 20px);
+         }
+         @include md-monitor(){
+           width: calc(90% - 20px);
+         }
+       }
+     }
+    */
+    .link-wrapper {
+      text-align: center;
+      padding: 25px;
+      a {
+        background-color: transparent;
+        border: 0;
+        font-size: 50px;
+        color: black;
+      }
+    }
+  }
+  
+  ul {
+    list-style: none;
+    
+    li {
+      a {
+        color: $navy;
+        padding-top: 25px;
+      }
+    }
+  }
+  
+  // Background-img each section
+  #sushi {
+    @include bg-image((linear-gradient(0deg,rgba(250, 250, 250,0.7),rgba(250, 250, 250,0.7)),url(https://www.katsu-yagroup.com/wp-content/themes/rosa_child/catering/img/catering-sushi-bg.jpg) center top), cover);
+  }
+  #special-roll {
+    @include bg-image((linear-gradient(0deg,rgba(250, 250, 250,0.7),rgba(250, 250, 250,0.7)),url(https://www.katsu-yagroup.com/wp-content/themes/rosa_child/catering/img/sp-roll-bg.jpg) center top), cover);
+  }
+  #sushi-sp {
+     @include bg-image((linear-gradient(0deg,rgba(250, 250, 250,0.7),rgba(250, 250, 250,0.7)),url(https://www.katsu-yagroup.com/wp-content/themes/rosa_child/catering/img/catering-sp-bg.jpg) center top), cover);
+    .button-wrap {
+      margin: {
+        top: 100px;
+        bottom: 150px;
+      }
+      a {
+        background-color: $navy;
+        color: white;
+        margin: 15px;
+        text-decoration: none;
+        padding: 10px 25px;
+        font-size: 20px;
+        //text-transform: uppercase;
+        border-radius: 30px;
+        
+        @include md-monitor {
+          display: block;
+        }
+      }
+    }
+  }
+  #creation {
+    @include bg-image((linear-gradient(0deg,rgba(250, 250, 250,0.7),rgba(250, 250, 250,0.7)),url(https://www.katsu-yagroup.com/wp-content/themes/rosa_child/catering/img/catering-creation-bg.jpg) center top), cover);
+  }
+  #roll {
+    @include bg-image((linear-gradient(0deg,rgba(250, 250, 250,0.7),rgba(250, 250, 250,0.7)),url(https://www.katsu-yagroup.com/wp-content/themes/rosa_child/catering/img/catering-roll-bg.jpg) center top), cover);
+  }
+  #sashimi {
+    @include bg-image((linear-gradient(0deg,rgba(250, 250, 250,0.7),rgba(250, 250, 250,0.7)),url(https://www.katsu-yagroup.com/wp-content/themes/rosa_child/catering/img/catering-sashimi-bg.jpg) center top), cover);
+  }
+  #appetizer {
+    @include bg-image((linear-gradient(0deg,rgba(250, 250, 250,0.7),rgba(250, 250, 250,0.7)),url(https://www.katsu-yagroup.com/wp-content/themes/rosa_child/catering/img/catering-appetizer-bg.jpg) center top), cover);
+  }
+  #hot {
+    @include bg-image((linear-gradient(0deg,rgba(250, 250, 250,0.7),rgba(250, 250, 250,0.7)),url(https://www.katsu-yagroup.com/wp-content/themes/rosa_child/catering/img/catering-ht-bg.jpg) center top), cover);
+  }
+  #hand-roll {
+    @include bg-image((linear-gradient(0deg,rgba(250, 250, 250,0.7),rgba(250, 250, 250,0.7)),url(https://www.katsu-yagroup.com/wp-content/themes/rosa_child/catering/img/catering-hr-bg.jpg) center bottom), cover);
+  }
+  
+  #order {
+    p {
+      text-align: center;
+      //text-transform: uppercase;
+      font-weight: $s-bold;
+      font-size: 20px;
+      margin-bottom: 25px;
+      
+      &.message {
+        font-size: 14px;
+        font-weight: $regular;
+        font-color: black !important;
+      }
+      
+      input {
+        background-color: $l-gray;
+        border: 0;
+        width: 50px;
+        padding: 10px;
+        font-size: 18px;
+        margin-left: 15px;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+Final Confirmation Page
+========================================================================== */ 
+#contact-summary {
+  padding: 25px;
+  width: 100%;
+  @include sm-monitor() {
+    padding: 0;
+  }
+  
+  h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+    //text-transform: uppercase;
+    font-weight: $bold;
+  }
+  
+  table {
+    // Common setting
+    border-collapse: collapse;
+    width: 90%;
+    margin: auto;
+    text-align: left;
+    font-size: 18px;
+    
+    input {
+      border: 0 !important;
+    }
+    
+    tr {
+      &:nth-child(odd) {
+        background-color: $white !important;
+      }
+      th {
+        //text-transform: uppercase;
+        padding-bottom: 15px;
+        font-weight: $s-bold;
+        border-bottom: 0px !important;
+        text-align: left;
+        width: 25%;
+        @include lg-monitor {
+          display: block;
+          width: 50%;
+          float: left;
+        }
+        @include xs-monitor() {
+          width: 100%;
+          clear: both;
+        }
+        
+        h3 {
+          font-size: 24px !important;
+          padding: {
+            top: 25px;
+            bottom: 5px;
+          }
+          margin-bottom: 0;
+          text-align: left !important;
+          font-weight: $s-bold;
+        }
+      }
+      td {
+        padding-bottom: 15px;
+        width: 25%;
+        @include lg-monitor() {
+          min-height: 58px;
+          display: block;
+          width: 50%;
+          float: left;
+        }
+        @include xs-monitor() {
+          width: 100%;
+          clear: both;
+          padding-bottom: 0;
+        }
+        textarea {
+          border: 0 !important;
+          text-align: left;
+        }
+        input {
+          @include sm-monitor() {
+            padding: 0 !important;
+          }
+        }
+      }
+    }
+  }
+}
+table#lunchbox {
+	tr:nth-child(2) {
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		td:nth-child(2) {
+			input {
+				text-align: center;
+			}
+		}
+		td:nth-child(3), td:nth-child(4) {
+			text-align: right;
+			input {
+				text-align: right;
+			}
+		}
+	}
+	tr:nth-child(3) {
+		td:nth-child(3), td:nth-child(4) {text-align: right;}
+	}
+	tr:nth-child(3) {
+		font-size: 20px;
+		font-weight: 600;
+	}
+	th {
+		text-align: center;
+	}
+}
+
+/* ==========================================================================
+Common table design
+========================================================================= */ 
+#order-summary {
+  padding: 25px;
+  @include lg-monitor() {
+    overflow-x: scroll;
+  }
+  
+  h2 {
+    font-weight: 700;
+    font-size: 27px !important;
+    //text-transform: uppercase;
+    margin-bottom: 15px;
+    span {
+      float: right;
+      a {
+        color: black;
+        font-size: 13px;
+        font-weight: $regular;
+      }
+    }
+  } 
+  
+  table {
+    // Common setting
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+    text-align: left;
+    font-size: 17px;
+    table-layout: fixed;
+    
+    tr {
+      &:nth-child(odd) {
+        background-color: $white !important;
+      }
+      
+      td {
+        vertical-align: top;
+        input {
+          border: none;
+          padding: {
+            top: 2px;
+            bottom: 10px;
+            left: 0;
+          }
+          font-size: 16px;
+          vertical-align: top;
+        }
+        p {
+          margin-bottom: 0px !important;
+          span {
+            input {
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+    
+    /* Platter order summary form */
+    &#platter {
+      tr {
+        &.total {
+          border-top: 1px solid $d-gray;
+          td {
+            font-weight: $s-bold;
+            font-size: 20px;
+            text-align: right;
+            input {
+              font-size: 20px;
+              text-align: right;
+              display: inline;
+            }
+          }
+        }
+        th {
+          border-bottom: 1px solid $d-gray !important;
+          padding-bottom: 7px;
+          &:nth-child(1) {
+            width: 250px;
+            white-space:nowrap;  
+          }
+          &:nth-child(2) {
+            width: 350px;
+            white-space:nowrap;  
+          }
+          &:nth-child(3) {
+            width: 200px;
+            white-space:nowrap;  
+          }
+          &:nth-child(4) {
+            width: 200px; 
+          }
+        }
+        td {
+          font-size: 16px;
+          padding: {
+            top: 10px;
+            bottom: 10px;
+          } 
+          &:nth-child(1) {
+            width: 250px;
+            white-space:nowrap;  
+            input {
+              width: 200px;
+              &.item-input {
+                width: 100px;
+              }
+              &#total-input {
+                width: 120px !important;
+                text-align: right !important;
+              }
+            }
+          }
+          &:nth-child(2) {
+            width: 350px;
+            white-space:nowrap;
+            input {
+              width: 200px;
+            }
+          }
+          &:nth-child(3) {
+            width: 200px;
+            white-space:nowrap;  
+            input {
+              width: 50px;
+              text-align: center;
+            }
+          } 
+          &:nth-child(4) {
+            width: 200px;
+            white-space:nowrap;  
+            input {
+              width: 100px;
+              text-align: right;
+            }
+          } 
+        }
+      }
+    }
+    
+    /* Catering order summary form */
+    &#catering {
+      tr {
+        &:nth-child(odd) {
+          background-color: transparent !important;
+        }
+        &.total {
+          border-top: 1px solid $d-gray;
+          td {
+            font-weight: $s-bold;
+            font-size: 20px;
+            text-align: right !important;
+            padding-bottom: 10px;
+            margin-top: 10px;
+            &.price {
+              font-weight: $regular;
+              input {
+                text-align: right !important;
+              }
+            }
+            
+            input {
+              font-size: 20px;
+              text-align: right;
+              font-weight: $regular;
+            }
+          }
+        }
+        &.total2 {
+          td {
+            padding-bottom: 10px;
+            font-weight: $s-bold;
+            font-size: 20px;
+            text-align: right !important;
+            &.price {
+              font-weight: $regular;
+            }
+            input {
+              font-size: 20px;
+              text-align: right !important;
+              font-weight: $regular;
+            }
+          }
+        }
+        &.border-top {
+          border-top: 1px solid $d-gray;
+        }
+        th {
+          border-bottom: 1px solid $d-gray !important;
+          padding-bottom: 7px;
+          &:nth-child(1) {
+            width: 200px;
+            white-space:nowrap;  
+            input {
+              width: 200px;
+            }
+          }
+          &:nth-child(2) {
+            width: 250px;
+            white-space:nowrap;  
+            input {
+              width: 250px;
+            }
+          }
+          &:nth-child(3) {
+            width: 600px;
+            white-space:nowrap;  
+            input {
+              width: 600px;
+            }
+          }
+          &:nth-child(4) {
+            width: 150px;
+            white-space:nowrap;  
+            input {
+              width: 150px;
+            }
+          }
+        }
+        td {
+          vertical-align: top;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          input {
+            br {
+              display: none;
+            }
+          }
+          &:nth-child(1) {
+            width: 150px;
+            white-space:nowrap;  
+            input {
+              width: 150px;
+            }
+          }
+          &:nth-child(2) {
+            width: 200px;
+            white-space:nowrap;  
+            input {
+              width: 200px;
+            }
+          }
+          &:nth-child(3) {
+            width: 400px;
+            white-space:nowrap;  
+            input {
+              width: 400px;
+            }
+          }
+          &:nth-child(4) {
+            width: 100px;
+            white-space:nowrap;  
+            input {
+              width: 100px;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+    &#full-custom {
+      th {
+        border-bottom: 1px solid $d-gray !important;
+        padding-bottom: 7px;
+        &:nth-child(1) {
+          width: 300px;
+          white-space:nowrap;  
+          input {
+            width: 300px;
+          }
+        }
+        &:nth-child(2) {
+          width: 600px;
+          white-space:nowrap;  
+          input {
+            width: 600px;
+          }
+        }
+        &:nth-child(3) {
+          width: 200px;
+          white-space:nowrap;  
+          input {
+            width: 200px;
+          }
+        }
+        &.last {
+          border-top: 1px solid $d-gray !important;
+        }
+      }
+    }
+  }
+}
+
+#form-container {
+  padding: 25px;
+  width: 100%;
+  @include sm-monitor() {
+    padding: 0;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 26px !important;
+    margin-bottom: 25px;
+    font-weight: 700;
+    @include sm-monitor() {
+      text-align: left;
+    }
+  }
+  
+  table {
+    // Common setting
+    border-collapse: collapse;
+    width: 100%; 
+    margin: auto;
+    text-align: left;
+    font-size: 16px;
+    
+    tr {
+      background-color: $white !important;
+      &:nth-child(odd) {
+        background-color: $white !important;
+      }
+      &:nth-of-type(odd) {
+        background-color: $white !important;
+      }
+      
+      td {
+        padding-bottom: 15px;
+        width: 300px;
+        
+        @include lg-monitor() {
+          width: 50%;
+          display: block;
+          float: left;
+        }
+        @include md-monitor() {
+          clear: both;
+          width: 100%;
+        }
+        &.w-100 {
+          @include lg-monitor() {
+            width: 100%;
+          }
+        }
+        &.pt-25 {
+          @include lg-monitor() {
+            padding-top: 0;
+          }
+        }
+        
+        input {
+          background-color: $l-gray;
+          font-size: 18px;
+          width: 100%;
+          margin-right: 25px;
+          border: 0;
+          padding: 7px 15px;
+        }
+        
+        h3 {
+          font-size: 24px !important;
+          padding: {
+            top: 50px;
+            bottom: 5px;
+          }
+          margin-bottom: 0;
+          text-align: left !important;
+          font-weight: $s-bold;
+        }
+        p {
+          //text-transform: uppercase;
+          font-size: 18px;
+          text-align: left;
+          margin-bottom: 0;
+          &.radio {
+            display: inline-block;
+            vertical-align: top !important;
+            margin-top: 0 !important;
+            span  {
+              margin-right: 0;
+            }
+            input {
+              width: 20px !important; 
+              font-size: 16px;
+            }
+            @include lg-monitor() {
+              display: block;
+            }
+          }
+          &.f-14 {
+            font-size: 16px;
+            text-align: left;
+          }
+        }
+        .select-wrap {
+          position: relative;
+          width: 350px;
+          @include xs-monitor() {
+            width: 0;
+          }
+          select {
+            width: 310px;
+            font-size: 18px;
+            padding: 7px 25px;
+            border: 0;
+            background-color: $l-gray;
+            border-radius: 5px;
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            @include xs-monitor() {
+              width: 265px;
+            }
+          }
+          span.arrow {
+            cursor: pointer;
+            position: absolute;
+            right: 50px;
+            top: 12px;
+            border: 4px solid transparent;
+            border-top: 6px solid #777;
+            @include lg-monitor() {
+              right: 54px;
+            }
+            @include xs-monitor() {
+              right: -247px;
+              top: 16px;
+            }
+          }
+        }
+        textarea {
+          background-color: $l-gray;
+          border: 0;
+          font-size: 18px;
+          padding: 7px 25px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+Lunchbox 
+========================================================================== */ 
+#lunchbox .h-desc {
+	text-align: center;
+	@include sm-monitor() {
+		text-align: left;
+	}
+}
+
+#lunchbox-order {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	@include sm-monitor() {
+		display: block;
+	}
+}
+
+#lunchbox-order .left {
+	h3 {
+		font-size: 28px !important;
+    	font-weight: 700;
+    	margin: 0;
+	}
+	h4, h5 {
+    	font-weight: 600;
+		margin-top: 0;
+    	margin-bottom: 25px;
+	}
+	h4 {
+		font-size: 16px;
+	}
+	h5 {
+		font-size: 20px !important;
+		margin-bottom: 35px;
+		letter-spacing: 0;
+		@include sm-monitor() {
+			margin-bottom: 25px;
+		}
+	}
+	input {
+		border: 0;
+	}
+	p {
+		margin-bottom: 0;
+	}
+	p#qty-error {color:red;}
+	p.sub-total {
+		font-size: 18px;
+		margin: 25px 0;
+	}
+}
+#lunchbox-order .right {
+	@include sm-monitor() {
+		text-align: center;
+	}
+	img {
+		width: 460px;
+		margin-left: 75px;
+		@include sm-monitor() {
+			margin-left: 0;
+			width: 70%;
+		}
+	}
+}

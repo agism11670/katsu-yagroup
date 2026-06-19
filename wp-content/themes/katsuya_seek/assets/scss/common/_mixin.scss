@@ -1,0 +1,51 @@
+/* Scss Document */
+
+/* ==========================================================================
+All Mixin
+========================================================================== */ 
+
+// Break point setup (based on Bootstrap)
+// ========================================================================
+@mixin xxl-monitor {
+  
+  @media screen and (max-width: 1639px){
+    @content;
+  }
+}
+@mixin xl-monitor {
+  
+  @media screen and (max-width: 1399px){
+    @content;
+  }
+}
+@mixin lg-monitor {
+  
+  @media screen and (max-width: 1199px){
+    @content;
+  }
+}
+@mixin md-monitor {
+  
+  @media screen and (max-width: 991px){
+    @content;
+  }
+}
+@mixin sm-monitor {
+  
+  @media screen and (max-width: 767px){
+    @content;
+  }
+}
+@mixin xs-monitor {
+  
+  @media screen and (max-width: 575px){
+    @content;
+  }
+}
+
+// Background image generator
+// ========================================================================
+@mixin bg-image($image, $size) {
+  background: $image;
+  background-size: $size;
+}

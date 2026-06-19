@@ -1,0 +1,6 @@
+<li><a href="https://order.online/business/sushi-katsuya-4369"  target="_blank" rel="noopener noreferrer" aria-label="Sushi Katsu-ya (opens in new tab)">Sushi Katsu-ya</a></li>
+<li><a href="https://order.online/business/~12780484/"  target="_blank" rel="noopener noreferrer" aria-label="Sushi Katsu-ya Seattle (opens in new tab)">Sushi Katsu-ya Seattle</a></li>
+<li><a href="https://order.online/business/the-izakaya-by-katsuya-1445" target="_blank" rel="noopener noreferrer" aria-label="The Izaka-ya (opens in new tab)">The Izaka-ya</a></li>
+<li><a href="https://order.online/business/the-little-izakaya-by-katsuya-4410" target="_blank" rel="noopener noreferrer" aria-label="Little Izaka-ya (opens in new tab)">Little Izaka-ya</a></li>
+<li><a href="https://order.online/business/kiwami-by-katsuya-51791"  target="_blank" rel="noopener noreferrer" aria-label="Kiwami (opens in new tab)">Kiwami</a></li>
+<li><a href="https://order.online/business/katsuya-delivery-926472"  target="_blank" rel="noopener noreferrer" aria-label="Katsu-ya Deliver (opens in new tab)">Katsu-ya Delivery</a></li>

@@ -1,0 +1,180 @@
+/* ================================
+Restaurants: Common
+=================================== */ 
+.restaurants-wrap {
+	overflow: hidden;
+	&__thumb {
+		img {
+			width: 100%;
+			height: 460px;
+			object-fit: cover;
+			@include xxl-monitor() {height: 322px;}
+		}
+	}
+	&__nothumb {
+		height: 40px;
+		@include xl-monitor() {height: 30px;}
+	}
+}
+.restaurants-wrap .container {
+	@include sm-monitor() {
+		width: 100% !important;
+		padding: {
+			left: 0;
+			right: 0;
+		}
+	}
+}
+.restaurants-wrap-info {
+	margin-top: -40px;
+	@include xxl-monitor() {margin-top: -30px;}
+	@include sm-monitor() {
+		padding: {
+			left: 15px;
+			right: 15px;
+		}
+	}
+	&__title {
+		color: $white;
+		background-color: $red;
+		display: inline-block;
+		font-size: 45px;
+		padding: 14px 15px;
+		line-height: 1.0;
+		margin-left: 35px;
+		text-transform: uppercase;
+		@include xxl-monitor() {font-size: 30px;}
+		@include sm-monitor() {margin-left: 0;}
+	}
+	&__btns {
+		@include sm-monitor() {margin-top: 30px;}
+		li {
+			@include sm-monitor() {display: inline-block;}
+			margin-bottom: 15px;
+			@include sm-monitor() {
+				padding-right: 15px;
+			}
+			&:last-child {
+				margin-bottom: 0;
+			}
+			a {
+				display: inline-block;
+				border: 2px solid $white;
+				color: $white;
+				padding: 7px 70px 7px 20px;
+				font: {
+					family: $second-en;
+					size: 21px;
+				}
+				letter-spacing: .04em;
+				position: relative;
+				text-transform: uppercase;
+				@include xxl-monitor() {
+					font-size: 17px;
+					padding: 10px 40px 10px 20px;
+				}
+				&:before {
+					content: url('../img/common/icon-restaurants-btn.svg');
+					position: absolute;
+					right: 25px;
+					top: 9px;
+					@include xxl-monitor() {
+						top: 10px;
+						right: 20px;
+						content: url('../img/common/icon-restaurants-btn-sp.svg');
+					}
+					
+				}
+			}
+		}
+	}
+}
+.restaurants-wrap-info__info .wrap {
+	display: flex;
+	align-items: center;
+	padding-bottom: 15px;
+	&:last-child {padding-bottom: 0;}
+	&__icon {
+		width: 30px;
+		margin-right: 15px;
+		text-align: center;
+		@include xxl-monitor() {width: 18px;}
+		img {
+			@include xxl-monitor() {width: 100%;}
+		}
+	}
+	&__txt {
+		color: $white;
+		font-size: 19px;
+		a {
+			color: $white;
+			text-decoration: none;
+		}
+		@include xxl-monitor() {font-size: 16px;}
+	}
+}
+.restaurants-wrap-info__hour .wrap {
+	color: $white;
+	font-size: 19px;
+	padding-bottom: 15px;
+	&:last-child {padding-bottom: 0;}
+	@include xxl-monitor() {font-size: 16px;}
+	span {
+		font-weight: $medium;
+		display: block;
+		color: $white;
+		text-transform: uppercase;
+	}
+}
+
+/* ================================
+Restaurants: Taxonomy
+=================================== */ 
+.restaurants-header {
+	@include bg-image(url("../img/common/restaurant-header.jpg") center center no-repeat, cover);
+}
+.restaurants-cat {
+	&__thumb {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	&__logo {
+		@include md-monitor() {text-align: center;}
+		img {max-width: 100%;}
+	}
+	&__title {
+		font: {
+			family: $primary-en;
+			size: 37px;
+			weight: $s-bold;
+		}
+		@include xxl-monitor() {font-size: 26px;}
+		@include sm-monitor() {font-size: 22px;}
+	}
+	&__gallery {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 5 / 3;
+		object-fit: cover;
+	}
+}
+.restaurants-list {
+	&__title {
+		text-align: center;
+		font-size: 70px;
+		@include xxl-monitor() {font-size: 49px;}
+		@include sm-monitor() {font-size: 30px;}
+	}
+}
+
+// Sushi Katsuya
+#sushi-katsu-ya-body {
+	&__logo {
+		img {
+			width: 412px;
+			@include xxl-monitor() {width: 288px;}
+			@include md-monitor() {width: 194px;}
+		}
+	}
+}

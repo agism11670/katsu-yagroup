@@ -1,0 +1,66 @@
+/* ================================
+環境設定
+=================================== */ 
+
+/* ================================
+Color
+=================================== */ 
+$txt-color: $d-black;
+
+/* ================================
+Font
+=================================== */  
+// Font Family
+// ================================
+$primary-en: $poppins;
+$second-en: $impact;
+
+// フォント環境設定
+// ================================
+html {
+	font-size: 20px;
+	@include xxl-monitor() {font-size: 16px;}
+	@include sm-monitor() {font-size: 14px;}
+}
+h1,h2,h3,h4,h5,h6,p,span,div,a,li,th,td,button {color: $txt-color;}
+p,span,div,a,li,th,td,button {
+	font: {
+		family: $primary-en;
+		weight: $light;
+	}
+	line-height: 1.5;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-family: $impact;
+	letter-spacing: .04em;
+	line-height: 1.5;
+}
+a {
+	text-decoration: none;
+	&:hover {color: $txt-color;}
+}
+
+/* ================================
+Bootstrap Overwrite
+=================================== */ 
+.container {
+	max-width: 1640px;
+	@include xxl-monitor() {max-width: 1140px;}
+	@include lg-monitor() {max-width: 960px;}
+	@include md-monitor() {max-width: 720px;}
+	@include sm-monitor() {
+		max-width: 540px;
+		padding: {
+			left: 23px;
+			right: 20px;
+		}
+	}
+}
+
+/* ================================
+Accessibility
+=================================== */ 
+:focus {
+	outline: 3px solid #1A73E8;
+	outline-offset: 2px;
+}

@@ -1,0 +1,167 @@
+<?php
+/**
+ * The header for our theme
+ *
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Katsu-ya
+ */
+
+?>
+<!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+	<!-- CookiePro Cookies Consent Notice start for katsu-yagroup.com -->
+	<script type="text/javascript" src="https://cookie-cdn.cookiepro.com/consent/018fe40f-65b6-7817-9983-435e1d7600fc/OtAutoBlock.js"></script>
+	<script src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="018fe40f-65b6-7817-9983-435e1d7600fc" ></script>
+	<script type="text/javascript">
+	function OptanonWrapper() { }
+	</script>
+	<!-- CookiePro Cookies Consent Notice end for katsu-yagroup.com -->
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-PXJD5RWH');</script>
+	<!-- End Google Tag Manager -->
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="oxNocFVTgMfsBvJPDz0gZ50sPWnzf6nalgXUjoQKPgw" />
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	
+	<!-- Font -->
+	<link href="<?php echo get_template_directory_uri(); ?>/assets/vendor/fontawesome/all.css" rel="stylesheet">
+	<link href="<?php echo get_template_directory_uri(); ?>/assets/vendor/fontawesome/sharp-solid.css" rel="stylesheet"> 
+	
+	<!-- CSS -->
+	<!-- Bootstrap -->
+	<link href="<?php echo get_template_directory_uri(); ?>/assets/vendor/bootstrap/bootstrap.css" rel="stylesheet">
+	<link href="<?php echo get_template_directory_uri(); ?>/assets/css/custom.css?1" rel="stylesheet">
+	<link href="<?php echo get_template_directory_uri(); ?>/style.css" rel="stylesheet">
+	<!-- Animation CSS -->
+	<link href="<?php echo get_template_directory_uri(); ?>/assets/vendor/animate_css/animate.min.css" rel="stylesheet">
+	<!-- Slick -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+	
+	<!-- JS -->
+	<!-- Bootstrap -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/assets/vendor/bootstrap/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+	<!-- Inview -->
+	<script src="<?php echo get_template_directory_uri(); ?>/assets/vendor/inview/jquery.inview.js"></script>
+	<!-- Match height -->
+	<script src="<?php echo get_template_directory_uri(); ?>/assets/vendor/matchheight/jquery.matchHeight.js"></script>
+	<!-- Slick -->
+	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<?php wp_head(); ?>
+</head>
+
+<body <?php body_class('gradient'); ?>>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXJD5RWH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<?php wp_body_open(); ?>
+	<a class="header-skip-link" href="#main">Skip to main content</a>
+	<header class="header">
+		<nav id="header-pc" aria-label="Main Menu" class="d-lg-block d-none">
+			<div class="d-flex justify-content-between align-items-center">
+				<a href="<?php echo home_url(); ?>" id="header-pc-logo">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo.svg" alt="Katsu-Ya Group">
+				</a>
+				<ul id="header-pc-menu" class="d-flex align-items-center justify-content-center list-style-none mb-0" role="menubar">
+					<li role="none"><a href="<?php echo home_url(); ?>" role="menuitem">Home</a></li>
+					<!-- Restaurants & Menus -->
+					<li role="none" class="dropdown">
+						<button id="btn-restaurants" role="menuitem" class="dropdown__btn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-restaurants" data-target="submenu-restaurants">Restaurants &amp; menu</button>
+						<ul id="submenu-restaurants" role="menu" aria-labelledby="btn-restaurants" aria-hidden="true" hidden class="list-style-none mb-0 dropdown__menu">
+							<?php
+							$terms = get_terms([
+								'taxonomy'   => 'restaurants',
+								'hide_empty' => false,
+							]);
+							foreach($terms as $term) {
+								$termLink = get_term_link($term);
+								echo '<li role="none"><a href="'.$termLink.'" role="menuitem">'.$term->name.'</a></li>';
+							}
+							?>
+						</ul>
+					</li>
+					<!-- Order Online -->
+					<li role="none" class="dropdown">
+						<button id="btn-order" role="menuitem" class="dropdown__btn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-order" data-target="submenu-order">Order online</button>
+						<ul id="submenu-order" role="menu" aria-labelledby="btn-order" aria-hidden="true" hidden class="list-style-none mb-0 dropdown__menu">
+							<?php get_template_part('template-parts/list', 'catering'); ?>
+						</ul>
+					</li>
+					<li role="none"><a href="<?php echo home_url('catering'); ?>" role="menuitem">Catering</a></li>
+					<!-- Order Online -->
+					<li role="none" class="dropdown">
+						<button id="btn-shop" class="dropdown__btn" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-shop" data-target="submenu-shop">Shop</button>
+						<ul id="submenu-shop" role="menu" aria-labelledby="btn-shop" aria-hidden="true" hidden class="list-style-none mb-0 dropdown__menu">
+							<li role="none"><a href="https://merchandise.katsu-yagroup.com/?_gl=1*2p2ew1*_ga*MTgzMDk5NTY2LjE3NTEyNzI1Mjc.*_ga_S5W3VFDYBF*czE3NTE5NTMyMTEkbzQkZzEkdDE3NTE5NTMyNjMkajgkbDAkaDA." target="_blank" role="menuitem" rel="noopener noreferrer" aria-label="Merchandise (opens in new tab)">Merchandise</a></li>
+							<li role="none"><a href="https://katsu-yagroup.cardfoundry.com/giftcards" target="_blank" role="menuitem" rel="noopener noreferrer" aria-label="Gift Cards (opens in new tab)">Gift Cards</a></li>
+						</ul>
+					</li>
+					<li role="none"><a href="<?php echo home_url(); ?>#home-contact" role="menuitem">Contact</a></li>
+				</ul>
+				<a href="https://www.levelaccess.com/a/katsu-yagroup/?utm_source=katsuyagrouphomepage&utm_medium=iconlarge&utm_term=eachannelpage&utm_content=header&utm_campaign=katsuyagroup" target="_blank" rel="noopener noreferrer" aria-label="Accessibility Statement (opens in new tab)" id="header-pc-accessibility"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-accessibility.png" alt="Accessibility Statement"></a>
+			</div>
+		</nav>
+		
+		<nav id="header-sp" aria-label="Main Menu" class="d-lg-none d-block">
+			<a href="<?php echo home_url(); ?>" id="header-sp-logo">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo.svg" alt="Katsu-Ya Group">
+			</a>
+			<button id="header-sp-toggler" aria-controls="header-sp-menu" aria-expanded="false" aria-label="Open main menu">
+				<span class="line line--top"></span>
+				<span class="line line--center"></span>
+				<span class="line line--bottom"></span>
+			</button>
+			<div id="header-sp-menu" aria-hidden="true" hidden>
+				<div id="header-sp-menu__inner">
+					<ul id="header-sp-menu__inner__menu" class="list-style-none mb-0" role="menubar">
+						<li role="none"><a href="<?php echo home_url(); ?>" role="menuitem">Home</a></li>
+						<!-- Restaurants & Menus -->
+						<li role="none" class="dropdown">
+							<button id="btn-restaurants-sp" role="menuitem" class="dropdown__btn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-restaurants-sp" data-target="submenu-restaurants-sp">Restaurants &amp; menu</button>
+							<ul id="submenu-restaurants-sp" role="menu" aria-labelledby="btn-restaurants-sp" aria-hidden="true" hidden class="list-style-none mb-0 dropdown__menu">
+								<?php
+								$terms = get_terms([
+									'taxonomy'   => 'restaurants',
+									'hide_empty' => false,
+								]);
+								foreach($terms as $term) {
+									$termLink = get_term_link($term);
+									echo '<li role="none"><a href="'.$termLink.'" role="menuitem">'.$term->name.'</a></li>';
+								}
+								?>
+							</ul>
+						</li>
+						<!-- Order Online -->
+						<li role="none" class="dropdown">
+							<button id="btn-order-sp" role="menuitem" class="dropdown__btn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-order-sp" data-target="submenu-order-sp">Order online</button>
+							<ul id="submenu-order-sp" role="menu" aria-labelledby="btn-order-sp" aria-hidden="true" hidden class="list-style-none mb-0 dropdown__menu">
+								<?php get_template_part('template-parts/list', 'catering'); ?>
+							</ul>
+						</li>
+						<li role="none"><a href="<?php echo home_url('catering'); ?>" role="menuitem">Catering</a></li>
+						<!-- Order Online -->
+						<li role="none" class="dropdown">
+							<button id="btn-shop-sp" class="dropdown__btn" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-shop-sp" data-target="submenu-shop-sp">Shop</button>
+							<ul id="submenu-shop-sp" role="menu" aria-labelledby="btn-shop-sp" aria-hidden="true" hidden class="list-style-none mb-0 dropdown__menu">
+								<li role="none"><a href="https://merchandise.katsu-yagroup.com/?_gl=1*2p2ew1*_ga*MTgzMDk5NTY2LjE3NTEyNzI1Mjc.*_ga_S5W3VFDYBF*czE3NTE5NTMyMTEkbzQkZzEkdDE3NTE5NTMyNjMkajgkbDAkaDA." target="_blank" role="menuitem" rel="noopener noreferrer" aria-label="Merchandise (opens in new tab)">Merchandise</a></li>
+								<li role="none"><a href="https://katsu-yagroup.cardfoundry.com/giftcards" target="_blank" role="menuitem" rel="noopener noreferrer" aria-label=">Gift Cards (opens in new tab)">Gift Cards</a></li>
+							</ul>
+						</li>
+						<li role="none"><a href="<?php echo home_url('contact'); ?>" role="menuitem">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>

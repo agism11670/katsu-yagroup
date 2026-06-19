@@ -1,0 +1,346 @@
+/*  ふわっと出るアニメーション */
+$(function(){
+	$(window).scroll(function (){
+       $('.right-to-left, .left-to-right, .down-to-top').each(function(){
+           var elemPos = $(this).offset().top;
+           var scroll = $(window).scrollTop();
+           var windowHeight = $(window).height();
+           if (scroll > elemPos - windowHeight + 150){
+               $(this).addClass('scrollin');
+           }
+       });
+	});
+});
+
+/* ================================
+Header
+=================================== */ 
+/* Dropdown Menu */
+$(function() {
+	// 初期設定：すべてのドロップダウンを閉じた状態に
+	$('.dropdown__btn').each(function() {
+		var $btn  = $(this);
+		var $menu = $('#' + $btn.data('target'));
+		$btn
+			.attr('aria-expanded', 'false');
+		$menu
+			.attr('aria-hidden', 'true')
+			.prop('hidden', true);
+	});
+	$('.dropdown__btn').on('click', function(e) {
+		e.preventDefault();
+		var $btn   = $(this);
+		var $menu  = $('#' + $btn.data('target'));
+		var isOpen = $btn.attr('aria-expanded') === 'true';
+		$('.dropdown__btn').not($btn).each(function() {
+			var $otherBtn  = $(this);
+			var $otherMenu = $('#' + $otherBtn.data('target'));
+			$otherBtn
+				.attr('aria-expanded', 'false');
+			$otherMenu
+				.attr('aria-hidden', 'true')
+				.prop('hidden', true)
+				.slideUp(200);
+		});
+		$btn
+			.attr('aria-expanded', String(!isOpen));
+		$menu
+			.attr('aria-hidden', String(isOpen))
+			.prop('hidden', isOpen)
+			.slideToggle(200, function() {
+			if (!isOpen) {
+				// 開いたら最初のメニュー項目にフォーカス
+				$menu.find('a[role="menuitem"]').first().focus();
+			}
+		});
+	});
+});
+$(function() {
+	var $toggler   = $('#header-sp-toggler');
+	var $menuPanel = $('#header-sp-menu');
+	$toggler.attr({
+		'aria-expanded': 'false',
+		'aria-controls': 'header-sp-menu',
+		'aria-label': 'Open main menu'
+	});
+	$menuPanel
+		.attr({
+		'aria-hidden': 'true'
+	})
+		.prop('hidden', true)
+		.hide();
+	$toggler.on('click', function(e) {
+		e.preventDefault();
+		var isOpen = $toggler.attr('aria-expanded') === 'true';
+		$toggler
+			.attr('aria-expanded', String(!isOpen))
+			.attr('aria-label', isOpen ? 'Open main menu' : 'Close main menu')
+			.toggleClass('active');
+		// ② メニューパネルの表示切り替え
+		$menuPanel
+			.attr('aria-hidden', String(isOpen))
+			.prop('hidden', isOpen)
+			.fadeToggle(200, function() {
+			if (!isOpen) {
+				$menuPanel.find('[role="menuitem"]').first().focus();
+			} else {
+				$toggler.focus();
+			}
+		});
+		$menuPanel.find('.dropdown__btn').each(function() {
+			var $btn  = $(this);
+			var $sub  = $('#' + $btn.data('target'));
+			$btn.attr('aria-expanded', 'false');
+			$sub
+				.attr('aria-hidden', 'true')
+				.prop('hidden', true)
+				.hide();
+		});
+	});
+	$(document).on('keydown', function(e) {
+		if (e.key === 'Escape' && $toggler.attr('aria-expanded') === 'true') {
+			$toggler.click();
+		}
+	});
+});
+
+
+/* ================================
+Footer
+=================================== */ 
+$(function () {
+	const $footer = $('footer');              // 監視するフッター
+	const $hide   = $('#header-sp-logo');  // 消したい要素
+	function toggleOnFooter() {
+		const winTop  = $(window).scrollTop();
+		const winBtm  = winTop + $(window).height();
+		const footTop = $footer.offset().top;
+		if (winBtm >= footTop) {
+			$hide.stop(true, true).fadeOut(200);
+		} else {
+			$hide.stop(true, true).fadeIn(200);
+		}
+	}
+	$(window).on('scroll resize', toggleOnFooter);
+	toggleOnFooter(); // 初回実行
+});
+
+/* ================================
+Accordion
+=================================== */ 
+$(function () {
+	$('.btn-accordion').each(function () {
+		var $btn = $(this);
+		var $panel = $('#' + $btn.data('target'));
+		$btn.attr('aria-expanded', 'false');
+		$panel.attr('aria-hidden', 'true').prop('hidden', true);
+	});
+	$('.btn-accordion').on('click', function () {
+		var $btn = $(this);
+		var $panel = $('#' + $btn.data('target'));
+		var isOpen = $btn.attr('aria-expanded') === 'true';
+		if (isOpen) {
+			// 自分を閉じるだけ
+			$btn.attr('aria-expanded', 'false').removeClass('active');
+			$panel.attr('aria-hidden', 'true').slideUp(200, function () {
+				$panel.prop('hidden', true);
+			});
+		} else {
+			// まずすべて閉じる（Promiseを使って完了後に開く）
+			var closePromises = [];
+			$('.btn-accordion').each(function () {
+				var $otherBtn = $(this);
+				var $otherPanel = $('#' + $otherBtn.data('target'));
+				if ($otherBtn[0] !== $btn[0]) {
+					$otherBtn.attr('aria-expanded', 'false').removeClass('active');
+					const p = new Promise(function (resolve) {
+						$otherPanel.slideUp(200, function () {
+							$otherPanel.prop('hidden', true).attr('aria-hidden', 'true');
+							resolve();
+						});
+					});
+					closePromises.push(p);
+				}
+			});
+			// すべて閉じ終わったら、自分を開く
+			Promise.all(closePromises).then(function () {
+				$btn.attr('aria-expanded', 'true').addClass('active');
+				$panel.prop('hidden', false).attr('aria-hidden', 'false').slideDown(200);
+			});
+		}
+	});
+});
+
+/* ================================
+Slick
+=================================== */ 
+$(function() {
+	var $slider = $('#home-about-video-slider');
+	$slider.on('init reInit afterChange', function(e, slick){
+		$(this).find('.wrap[tabindex]').removeAttr('tabindex');
+		$(this).find('.slick-slide[tabindex]').removeAttr('tabindex');
+	});
+	$slider.slick({
+		infinite: false,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		autoplay: false,
+		dots: false,
+		focusOnSelect: false,
+		accessibility: false,
+		prevArrow: '<button type="button" class="slider-nav slider-nav--prev" aria-label="Previous"></button>',
+		nextArrow: '<button type="button" class="slider-nav slider-nav--next" aria-label="Next"></button>',
+		responsive: [
+			{
+				breakpoint: 1398,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					variableWidth: true
+				}
+			}
+		]
+	});
+	setTimeout(function(){
+		$slider.find('.wrap[tabindex]').removeAttr('tabindex');
+		$slider.find('.slick-slide[tabindex]').removeAttr('tabindex');
+	}, 0);
+});
+
+
+/* ================================
+Match-height
+=================================== */ 
+$(function() {
+	$('.match-height').matchHeight();
+});
+
+/* ================================
+Catering
+=================================== */ 
+/* Switch the input field for the pickup/delivery */
+$(function() {
+    $('input[type=radio]').change(function() {
+        $('.pickup,.dropoff').removeClass('d-none');
+ 
+        if ($("input:radio[name='event']:checked").val() == "Pick up") {
+            $('.dropoff').addClass('d-none');
+        } else if($("input:radio[name='event']:checked").val() == "Drop off") {
+            $('.pickup').addClass('d-none');
+        } 
+    }).trigger('change'); //←(1)
+});
+
+/* Cateringオーダー成功後遷移ページのメッセージにフォーカスを当てる */
+$(document).ready( function(){
+	$('#thankyou').focus();
+});
+
+
+/* ================================
+外部リンクの際に表示
+=================================== */ 
+$(function(){
+	var $modal      = $('#external-link-modal');
+	var $overlay    = $modal.find('.modal-overlay');
+	var $content    = $modal.find('.modal-content');
+	var $btnYes     = $('#external-link-yes');
+	var $btnNo      = $('#external-link-no');
+	var targetHref;     // 外部リンクの URL
+	var lastTrigger = null; // クリック元の要素を保持
+	$('a[target="_blank"], a[href^="http"]').on('click', function(e){
+		var linkHost = this.hostname;
+		if (linkHost && linkHost !== window.location.hostname) {
+			e.preventDefault();
+			targetHref = this.href;
+			lastTrigger = this;
+			openModal();
+		}
+	});
+	function openModal(){
+		$modal.removeAttr('hidden');
+		$content.attr('tabindex', '-1').focus();
+		trapFocus();
+	}
+	function closeModal(){
+		$modal.attr('hidden', true);
+		releaseFocusTrap();
+		if (lastTrigger) {
+			setTimeout(function(){
+				lastTrigger.focus();
+			}, 0);
+		}
+	}
+	$btnYes.on('click', function(){
+		window.open(targetHref, '_blank', 'noopener');
+		closeModal();
+	});
+	$btnNo.add($overlay).on('click', closeModal);
+	var focusable = $content.find('button');
+	var firstF    = focusable.first();
+	var lastF     = focusable.last();
+	function trapFocus(){
+		firstF.focus();
+		$content.on('keydown.trap', function(e){
+			if (e.key === 'Tab') {
+				if (e.shiftKey && document.activeElement === firstF[0]) {
+					e.preventDefault();
+					lastF.focus();
+				} else if (!e.shiftKey && document.activeElement === lastF[0]) {
+					e.preventDefault();
+					firstF.focus();
+				}
+			}
+			if (e.key === 'Escape') closeModal();
+		});
+	}
+	function releaseFocusTrap(){
+		$content.off('keydown.trap');
+	}
+});
+
+/* ================================
+Contact Form7のアクセシビリティ
+=================================== */ 
+// Submit後最初の要素にフォーカスを当てる
+(function () {
+	function focusFirstField(form) {
+		if (!form) return;
+		const first = form.querySelector(
+			'input:not([type="hidden"]):not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled])'
+		);
+		if (first) {
+			first.focus({ preventScroll: false });
+		}
+	}
+	function focusMessage(form) {
+		const msg = form.querySelector('.wpcf7-response-output');
+		if (!msg) return;
+		msg.setAttribute('tabindex', '-1');
+		msg.setAttribute('role', 'status');
+		msg.setAttribute('aria-live', 'polite');
+		msg.focus({ preventScroll: false });
+	}
+	// 成功時のみ：メッセージへフォーカス
+	document.addEventListener('wpcf7mailsent', function (event) {
+		const form = event.target;
+		setTimeout(() => focusMessage(form), 0);
+	}, false);
+	// エラー系：必ずフォーム先頭へフォーカス
+	['wpcf7invalid', 'wpcf7mailfailed', 'wpcf7spam'].forEach((evtName) => {
+		document.addEventListener(evtName, function (event) {
+			const form = event.target;
+			setTimeout(() => focusFirstField(form), 0);
+		}, false);
+	});
+})();
+document.addEventListener('invalid', function(e){
+  if (e.target && e.target.closest && e.target.closest('form.wpcf7-form')) {
+    e.preventDefault(); // ネイティブ吹き出しを止める
+  }
+}, true);
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.wpcf7-form [required]').forEach(function (el) {
+    el.removeAttribute('required');
+  });
+});

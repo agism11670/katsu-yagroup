@@ -1,0 +1,150 @@
+/* Scss Document */
+/* ================================
+共通クラス
+=================================== */ 
+/* ================================
+Position
+=================================== */
+.relative {position: relative;}
+.hidden {overflow: hidden;}
+
+/* ================================
+Background
+=================================== */ 
+.bg-d-gray {background-color: $d-black;}
+.bg-xl-gray {background-color: $xl-gray;}
+
+/* ================================
+Font
+=================================== */ 
+// Font Family
+// ===================================
+
+// Font Weight
+// ===================================
+.f-light {font-weight: $light;}
+.f-reg {font-weight: $reg !important;}
+.f-med {font-weight: $medium !important;}
+.f-s-bold {font-weight: $s-bold;}
+.f-bold {font-weight: $bold;}
+
+// Font Size
+// ===================================
+.f-sm {
+	font-size: 14px;
+	@include sm-monitor() {font-size: 13px;}
+}
+.h-md {
+	font-size: 40px;
+	@include xxl-monitor() {font-size: 28px;}
+	@include sm-monitor() {font-size: 24px;}
+}
+.h-lg {
+	font-size: 50px;
+	line-height: 1.2;
+	@include xxl-monitor() {font-size: 35px;}
+	@include sm-monitor() {font-size: 28px;}
+}
+
+// Font Color
+// ===================================
+.f-red {color: $red;}
+
+// Line Height
+// ===================================
+
+// Text Transform
+// ===================================
+.allcap {text-transform: uppercase;}
+
+/* ================================
+Margin
+=================================== */ 
+.mb-md {margin-bottom: 80px;}
+.mb-lg {margin-bottom: 95px;}
+
+/* ================================
+Padding
+=================================== */  
+.pb-lg {padding-bottom: 95px;}
+.py-md {
+	padding: {
+		top: 80px;
+		bottom: 80px;
+	}
+}
+.py-lg {
+	padding: {
+		top: 95px;
+		bottom: 95px;
+	}
+}
+
+/* ================================
+Link
+=================================== */ 
+.link-black {
+	text-decoration: underline;
+	&:hover {text-decoration: none;}
+}
+
+/* ================================
+List
+=================================== */ 
+.list-style-none {
+	list-style: none;
+	padding-left: 0;
+}
+.list-style-inline {
+	list-style: none;
+	padding-left: 0;
+	li {
+		display: inline-block;
+	}
+}
+.list-style-default {
+	li {
+		padding-bottom: 7px;
+		&:last-child {
+			padding-bottom: 0;
+		}
+	}
+}
+.list-style-alphabet {
+	list-style: lower-alpha;
+}
+
+/* ================================
+Animation
+=================================== */ 
+/*フェードインアニメ*/
+/*左から右にフェードイン*/
+.left-to-right {
+  opacity: 0.1;
+  transform: translateX(-20px);
+  transition: all 1s;
+}
+.left-to-right.scrollin {
+  opacity: 1;
+  transform: translate(0);
+}
+/*右から左にフェードイン*/
+.right-to-left {
+  opacity: 0.1;
+  transform: translateX(20px);
+  transition: all 1s;
+}
+.right-to-left.scrollin {
+  opacity: 1;
+  transform: translate(0);
+}
+/*下から上にフェードイン*/
+.down-to-top {
+  opacity: 0.1;
+  transform: translateY(20px);
+  transition: all 1s;
+}
+.down-to-top.scrollin {
+  opacity: 1;
+  transform: translateY(0);
+}

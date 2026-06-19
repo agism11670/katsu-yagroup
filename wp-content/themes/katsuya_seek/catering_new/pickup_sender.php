@@ -1,0 +1,200 @@
+<?php
+session_start();
+ob_start();
+?>
+<html>
+<meta charset="utf-8">
+<body>
+	<h2>Order Summary</h2>
+	<hr>
+	<!-- Items -->
+	<?php 
+	$pickup1 = $_POST['pickup1']; // Qty of family take out A
+	$pickup2 = $_POST['pickup2']; // Qty of family take out B
+	$pickup3 = $_POST['pickup3']; // Sushi Platter
+	$pickup4 = $_POST['pickup4']; // Roll Platter
+	//$pickup5 = $_POST['pickup5']; // Lunchbox
+	
+	$pickupPrice1 = $_POST['pickup1_price']; // Price for family take out A
+	$pickupPrice2 = $_POST['pickup2_price']; // Price for family take out B
+	$pickupPrice3 = $_POST['pickup3_price']; // Price for Sushi platter
+	$pickupPrice4 = $_POST['pickup4_price']; // Price for Roll Platter
+	$grandTotal = $_POST['grandtotal']; // Grand Total
+	//$pickupPrice5 = $_POST['pickup5_price']; // Price for Lunchbox
+	?>
+	<!-- Family take out A -->
+	<?php if($pickup1 != '' || $pickup1 != 0): ?>
+	<h3>Family Take Out(A)</h3>
+	<p>
+		Quantity: <?php echo $pickup1; ?><br>
+		<?php echo $pickupPrice1; ?>
+	</p>
+	<?php endif; ?>
+	<!-- #Family take out A -->
+	
+	<!-- Family take out B -->
+	<?php if($pickup2 != '' || $pickup2 != 0): ?>
+	<h3>Family Take Out(B)</h3>
+	<p>
+		Quantity: <?php echo $pickup2; ?><br>
+		<?php echo $pickupPrice2; ?>
+	</p>
+	<?php endif; ?>
+	<!-- #Family take out B -->
+	
+	<!-- Sushi Platter -->
+	<?php if($pickup3 != '' || $pickup3 != 0): ?>
+	<?php $sushiNum = $_POST['sushinum']; ?>
+	<h3>Sushi Platter</h3>
+	<p>
+		Quantity: <?php echo $pickup3; ?><br>
+		<?php for($i=0; $i<$sushiNum; $i++) {
+			$sushiItem = $_POST['pickup3_item'.$i];
+			echo $sushiItem.'<br>';
+		}
+		?>
+		<?php echo $pickupPrice3; ?>
+	</p>
+	<?php endif; ?>
+	<!-- #Sushi Platter -->
+	
+	<!-- Roll Platter -->
+	<?php if($pickup4 != '' || $pickup4 != 0): ?>
+	<?php $rollNum = $_POST['rollnum']; ?>
+	<h3>Roll Platter</h3>
+	<p>
+		Quantity: <?php echo $pickup4; ?><br>
+		<?php for($i=0; $i<$rollNum; $i++) {
+			$rollItem = $_POST['pickup4_item'.$i];
+			echo $rollItem.'<br>';
+		}
+		?>
+		<?php echo $pickupPrice4; ?>
+	</p>
+	<?php endif; ?>
+	<!-- #Roll Platter -->
+	
+	<h3>Total Price: <?php echo $grandTotal; ?></h3>
+	
+	<!-- Lunchbox -->
+	<?php /*
+	<?php if($pickup5 != '' || $pickup5 != 0): ?>
+	<h3>LUNCH BOX</h3>
+	<p>
+		Quantity: <?php echo $pickup5; ?><br>
+		<?php echo $pickupPrice5; ?>
+	</p>
+	<?php endif; ?>*/ ?>
+	<!-- #Lunchbox -->
+	<br>
+	<?php
+	// Contact Information
+	$contact1 =  $_POST['contact1'];	// CUSTOMER NAME
+	$contact2 =  $_POST['contact2'];	// PHONE NUMBER
+	$contact3 = $_POST['contact3'];	// COMPANY NAME
+	$contact4 = $_POST['contact4'];	// CELL PHONE NUMBER
+	$contact5 = $_POST['contact5'];	// EMAIL ADDRESS
+	?>
+	<h2>Contact Information</h2>
+	<hr>
+	<p><strong>Customer Name:</strong> <?php echo $contact1; ?><br>
+	<strong>Phone Number:</strong> <?php echo $contact2; ?><br>
+	<strong>Company Name:</strong> <?php echo $contact3; ?><br>
+	<strong>Cell Phone Number:</strong> <?php echo $contact4; ?><br>
+	<strong>Email Address:</strong> <?php echo $contact5; ?></p>
+	<br>
+	<?php
+	$event1 = $_POST['event1'];	// EVENT TYPE
+	$event2 = $_POST['event2'];	// EVENT DATE
+	$event3 = $_POST['event3'];	// PICK UP OR DROP OFF TIME
+	$event4 = $_POST['event4'];	// PICK UP LOCATION
+	$event5 = $_POST['event5'];	// DROP OFF LOCATION
+	?>
+	<h2>Event Information</h2>
+	<hr>
+	<p>
+		<strong>Event Type:</strong> <?php echo $event1; ?><br>
+		<strong>Event Date:</strong> <?php echo $event2; ?><br>
+		<strong>Pick Up or Drop Off Time:</strong> <?php echo $event3; ?><br>
+		<?php if($event1 == "Pick up"): ?>
+		<strong>Pick Up Location:</strong> <?php echo $event4; ?><br>
+		<?php else: ?>
+		<strong>Drop Off Location:</strong> <?php echo $event5; ?><br>
+		<?php endif; ?>
+	</p>
+	<br>
+	<?php 
+	$request1 = $_POST['request1']; // MEMO
+	$request2 = $_POST['request2']; // ALLERGY
+	$request3 = $_POST['request3'];  // PREFERENCE
+	?>
+	<h2>Other Request</h2>
+	<hr>
+	<p>
+		<strong>Memo:</strong><br>
+		<?php echo $request1; ?>
+	</p>
+	<p>
+		<strong>Allergy:</strong><br>
+		<?php echo $request2; ?>
+	</p>
+	<p>
+		<strong>Preference:</strong><br>
+		<?php echo $request3; ?>
+	</p>
+<?php
+$body = ob_get_contents();
+ob_end_clean();
+?>
+
+<?php 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+	
+$mail = new PHPMailer();
+
+try {
+	//Server settings
+	$mail->SMTPDebug = 0;
+	$mail->isSMTP();
+	$mail->Host = 'smtp.office365.com';
+	$mail->SMTPAuth = true; 
+	$mail->Username = 'catering@katsu-yagroup.com';
+	$mail->Password = 'mX3n0L0w';
+	$mail->SMTPSecure = 'TLS';
+	$mail->Port = 587;
+	
+	// Katsu-ya側
+	$mail->setFrom('catering@katsu-yagroup.com','KATSU-YA');
+	$mail->addAddress('catering@katsu-yagroup.com', 'KATSU-YA CATERING PICKUP OR DELIVERY');
+	//$mail->addAddress('developer@seeknetusa.com', 'KATSU-YA CATERING');
+	$mail->addReplyTo($contact5, $contact1);
+	//Content
+	$mail->isHTML(true);                                  // Set email format to HTML
+	$mail->Subject = 'Order Notification - www.katsu-yagroup.com Catering';
+	$mail->Body    = "<p>You got a new catering order from https://www.katsu-yagroup.com/. <br>About the order detail, please check the email.</p>".$body;
+	$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+	$mail->send();
+	$mail->clearAllRecipients(); // Reset
+	$mail->clearReplyTos(); // Reset
+	
+	// お客様側
+	$mail->setFrom('catering@katsu-yagroup.com','KATSU-YA');
+	$mail->AddAddress($contact5, $contact1);
+	//Content
+	$mail->isHTML(true);
+	$mail->Subject = 'KATSU-YA CATERING - Order Received - Pending';
+	$mail->Body    = '<p>Thank you for ordering our catering.<br>Your order is not confirmed yet.<br>One of our catering staff will reach out to you shortly to go over details and confirm.</p>'.$body;
+	$mail->send();
+	header( "Location: /order-success" );
+	exit;
+} catch (Exception $e) {
+	echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+}
+?>
+	</body>
+</html>

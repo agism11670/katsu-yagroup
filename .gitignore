@@ -1,0 +1,29 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# WordPress uploads & cache
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup*/
+wp-content/*.log
+
+# Dependencies / build
+node_modules/
+vendor/
+*.min.css.map
+*.min.js.map
+
+# Environment / secrets
+.env
+.env.*
+wp-config.php
+
+# Logs / temp
+*.log
+*.tmp
+*.bak

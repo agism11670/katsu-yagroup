@@ -1,0 +1,189 @@
+<section id="platter-sc2" class="catering-form" aria-labelledby="platter-title2">
+	<h2 id="platter-title2" class="text-center h-lg allcap mb-5">Fill in the box areas to complete your order!</h2>
+	<!-- Info -->
+	<fieldset>
+		<h3 class="allcap h-md mb-4">Contact Information</h3>
+		<table class="table" role="presentation">
+			<tr>
+				<th><label id="c-name" for="c-f-name" tabindex="-1">Customer Name <span class="text-danger" aria-hidden="true">*</span> <span class="sr-only">Asterisks (*) indicate required fields.</span></label></th>
+				<td><input type="text" class="form-control" name="c-f-name" id="c-f-name" aria-labelledby="c-name" required aria-required="true"></td>
+				<th><label id="c-phone" for="c-f-phone" tabindex="-1">Phone Number <span class="text-danger" aria-hidden="true">*</span> <span class="sr-only">Asterisks (*) indicate required fields.</span></label></th>
+				<td><input type="text" class="form-control" name="c-f-phone" id="c-f-phone" aria-labelledby="c-phone" required aria-required="true"></td>
+			</tr>
+			<tr>
+				<th><label id="c-company" for="c-f-company" tabindex="-1">Company Name</label></th>
+				<td><input type="text" class="form-control" name="c-f-company" id="c-f-company" aria-labelledby="c-company"></td>
+				<th><label id="c-cell" for="c-f-cell" tabindex="-1">Cell Phone Number</label></th>
+				<td><input type="text" class="form-control" name="c-f-cell" id="c-f-cell" aria-labelledby="c-cell"></td>
+			</tr>
+			<tr>
+				<th><label id="c-email" for="c-f-email" tabindex="-1">Email Address <span class="text-danger" aria-hidden="true">*</span> <span class="sr-only">Asterisks (*) indicate required fields.</span></label></th>
+				<td><input type="email" class="form-control" name="c-f-email" id="c-f-email" aria-labelledby="c-email" required aria-required="true"></td>
+			</tr>
+		</table>
+	</fieldset>
+	
+	<!-- Event Info -->
+	<fieldset>
+		<h3 class="allcap h-md mb-4">Event Information</h3>
+		<fieldset class="radio">
+			<legend class="visually-hidden">Pick up or Delivery</legend>
+			<table class="table mb-0" role="presentation">
+				<tr class="radio-row">
+					<td>
+						<div class="radio-wrap">
+							<input type="radio" name="event" id="buffet" value="Catering Style Buffet (Platter Delivery)" checked>
+							<label for="buffet">Catering Style Buffet <br><small>(Platter Delivery)</small></label>
+						</div>
+					</td>
+					<td>
+						<div class="radio-wrap">
+							<input type="radio" name="event" id="livesushi" value="Live Sushi Bar (Chef onsite)">
+							<label for="livesushi">Live Sushi Bar <br><small>(Chef onsite)</small></label>
+						</div>
+					</td>
+					<td>
+						<div class="radio-wrap">
+							<input type="radio" name="event" id="table" value="Formal Table Service (Sit down dinner/ Servers and chefs serve food)">
+							<label for="table">Formal Table Service <br><small>(Sit down dinner/ Servers and chefs serve food)</small></label>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+		<table class="table" role="presentation">
+			<tr>
+				<td colspan="4" class="text-left">
+					<ul class="list-style-none list-style-default mb-0">
+						<li><span class="text-danger" aria-hidden="true">*</span> Note : Delivery - $500 minimum</li>
+						<li><span class="text-danger" aria-hidden="true">*</span> Note : Live sushi bar or formal table service - $3,000 ($3,500 for weekend or holidays) minimum</li>
+						<li><span class="text-danger" aria-hidden="true">*</span> Note : Orders must be placed at least 5 days prior and are not confirmed until email confirmation—minimum lead times: 5 days for delivery, 10 days for live chef service, and 15 days for formal table service</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th><label id="date-f" for="date" tabindex="-1">Event Date: </label></th>
+				<td colspan="3"><input type="text" name="date" id="date" aria-labelledby="date-f" placeholder="mm/dd/yyyy" class="form-control"></td>
+			</tr>
+			<tr>
+				<th class="heading">Event Start</th>
+				<td colspan="3" class="form-col2">
+					<fieldset class="time-range">
+						<legend class="visually-hidden" id="time-range-legend">Event start time range</legend>
+						<div class="d-flex align-items-center form-col2__col">
+							<label id="time-start" for="timestart">From</label>
+							<select name="timestart" id="timestart" aria-labelledby="time-start" class="form-select">
+								<option value="12:00">12:00</option>
+								<option value="12:30">12:30</option>
+								<option value="13:00">13:00</option>
+								<option value="13:00">13:30</option>
+								<option value="14:00">14:00</option>
+								<option value="14:30">14:30</option>
+								<option value="15:00">15:00</option>
+								<option value="15:30">15:30</option>
+								<option value="16:00">16:00</option>
+								<option value="16:30">16:30</option>
+								<option value="17:00">17:00</option>
+								<option value="17:30">17:30</option>
+								<option value="18:00">18:00</option>
+								<option value="18:30">18:30</option>
+								<option value="19:00">19:00</option>
+								<option value="19:30">19:30</option>
+								<option value="20:00">20:00</option>
+								<option value="20:30">20:30</option>
+								<option value="21:00">21:00</option>
+								<option value="21:30">21:30</option>
+								<option value="22:00">22:00</option>
+								<option value="22:30">22:30</option>
+								<option value="23:00">23:00</option>
+								<option value="23:30">23:30</option>
+								<option value="0:00">0:00</option>
+							</select>
+						</div>
+						<div class="d-flex align-items-center form-col2__col">
+							<label id="time-end" for="timeend">To</label>
+							<select name="timeend" id="timeend" aria-labelledby="time-end" class="form-select">
+								<option value="12:00">12:00</option>
+								<option value="12:30">12:30</option>
+								<option value="13:00">13:00</option>
+								<option value="13:00">13:30</option>
+								<option value="14:00">14:00</option>
+								<option value="14:30">14:30</option>
+								<option value="15:00">15:00</option>
+								<option value="15:30">15:30</option>
+								<option value="16:00">16:00</option>
+								<option value="16:30">16:30</option>
+								<option value="17:00">17:00</option>
+								<option value="17:30">17:30</option>
+								<option value="18:00">18:00</option>
+								<option value="18:30">18:30</option>
+								<option value="19:00">19:00</option>
+								<option value="19:30">19:30</option>
+								<option value="20:00">20:00</option>
+								<option value="20:30">20:30</option>
+								<option value="21:00">21:00</option>
+								<option value="21:30">21:30</option>
+								<option value="22:00">22:00</option>
+								<option value="22:30">22:30</option>
+								<option value="23:00">23:00</option>
+								<option value="23:30">23:30</option>
+								<option value="0:00">0:00</option>
+							</select>
+						</div>
+					</fieldset>
+				</td>
+			</tr>
+			<tr class="catering location"> 
+				<th><label id="catering-location" for="c-location" tabindex="-1">Catering location</label></th>
+				<td colspan="3">
+					<input type="text" name="c-location" id="c-location" aria-labelledby="catering-location" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<th class="heading">Appriximate Numbef of Guests</th>
+				<td colspan="3" class="form-col2">
+					<fieldset class="guest-count">
+						<legend class="visually-hidden" id="guest-legend">Approximate number of guests</legend>
+						<div class="d-flex align-items-center form-col2__col">
+							<label for="adults-num">Adults</label>
+							<input type="number" name="adults-num" id="adults-num" min="0" class="form-control">
+						</div>
+						<div class="d-flex align-items-center form-col2__col">
+							<label for="kids-num">Kids</label>
+							<input type="number" name="kids-num" id="kids-num" min="0" class="form-control">
+						</div>
+					</fieldset>
+				</td>
+			</tr>
+			
+		</table>
+	</fieldset>
+	<!-- Other requiest -->
+	<fieldset>
+		<h3 class="f-bold">Other Request</h3>
+		<table class="table table--col1" role="presentation">
+			<tr>
+				<th><label id="memo" for="c-memo" tabindex="-1">Memo</label></th>
+			</tr>
+			<tr>
+				<td><textarea rows="4" name="c-memo" id="c-memo" aria-labelledby="memo" class="form-control"></textarea></td>
+			</tr>
+			<tr>
+				<th><label id="allergy" for="c-allergy" tabindex="-1">Allergy <span class="f-14">(Example: All Soy Paper / All Hand Roll / Easy Rice / Vegetarian Menu)</span></label></th>
+			</tr>
+			<tr>
+				<td><textarea rows="4" name="c-allergy" id="c-allergy" aria-labelledby="allergy" class="form-control"></textarea></td>
+			</tr>
+			<tr>
+				<th><label id="preference" for="c-preference" tabindex="-1">Preference <span class="f-14">(Example: All Soy Paper / All Hand Roll / Easy Rice / Vegetarian Menu)</span></label></th>
+			</tr>
+			<tr>
+				<td><textarea rows="4" name="c-preference" id="c-preference" aria-labelledby="preference" class="form-control"></textarea></td>
+			</tr>
+		</table>
+	</fieldset>
+	<p class="text-center"><span class="text-danger" aria-hidden="true">*</span> This is a first contact inquiry for on-site catering service.<br>A catering advisor will contact you shortly to help plan your event.</p>
+	<div class="text-center mt-5">
+		<input type="submit" class="btn" value="Next" onClick="return cateringchefCheck();">
+	</div>
+</section>

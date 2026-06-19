@@ -1,0 +1,488 @@
+<?php
+/**
+ * 固定ページ：ホーム
+ *
+ * @package Katsu-ya
+ */
+
+get_header();
+?>
+<main id="main">
+	<!-- Hero -->
+	<div id="home-hero" class="d-lg-flex align-items-start">
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/hero-img-sp1.jpg" alt="" class="d-lg-none d-block w-100 sp-img sp-img--top">
+		<div id="home-hero-left">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/logo-katsuya.svg" alt="Sushi Katsu-ya" id="home-hero-left__logo">
+			<h1 id="home-hero-left__title" class="text-white my-lg-3 my-0">
+				Sushi Made<br>
+				From the Heart
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/hero-signature.svg" alt="Katsuya Uechi" id="home-hero-left__title__img1">
+			</h1>
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/hero-sticker.svg" alt="" id="home-hero-left__deco">
+		</div>
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/hero-img1.jpg" alt="" id="home-hero-right" class="d-lg-block d-none">
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/hero-img-sp2.jpg" alt="" class="d-lg-none d-block w-100 sp-img">
+		<!--h1 id="home-hero-title">Where Every <br class="d-block d-md-none">Bite Tells a Story</h1-->
+		<div id="home-hero-scroll"></div>
+	</div>
+	
+	<!-- About -->
+	<section id="home-about" class="bg-d-gray pb-lg" aria-labelledby="home-about-title">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-20 offset-lg-2">
+					<h2 class="home-title home-title--wht mb-4" id="home-about-title">About</h2>
+					<h3 class="text-white" id="home-about-title-sm">Blending Tradition with Creativity</h3>
+					<p class="mb-5 text-white">
+            Since 1997, Master Sushi Chef Katsuya Uechi has transformed the sushi landscape in Los Angeles, setting a new standard for Japanese dining. Nearly three decades later, our signature dishes—now celebrated worldwide—continue to blend timeless tradition with modern creativity. Today, Katsu-ya Group offers a refined yet welcoming dining experience—where tradition is honored and innovation is celebrated.
+					</p>
+				</div>
+			</div>
+			<div id="home-about-video-slider" aria-label="Video Slider">
+				<div class="wrap">
+					<div class="wrap__thumb">
+						<div class="wrap__thumb__title">
+    						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/about-logo.svg" alt="" aria-hidden="true">
+    						<span>CRISPY RICE WITH SPICY TUNA</span>
+  						</div>
+						<video src="<?php echo get_template_directory_uri(); ?>/assets/vid/video1.mp4" id="home-hero-video" poster="<?php echo get_template_directory_uri(); ?>/assets/img/home/about-thumb1_new.jpg" controls="" playsinline=""></video>
+					</div>
+					<div class="text-center mt-4">
+						<button class="text-center btn-transcript btn-accordion" aria-haspopup="true" aria-expanded="false" aria-controls="transcript1" data-target="transcript1" aria-label="Crispy rice with spicy tuna Toggle Video Transcript">VIDEO TRANSCRIPT</button>
+					</div>
+				</div>
+				<div class="wrap">
+					<div class="wrap__thumb">
+						<div class="wrap__thumb__title">
+    						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/about-logo.svg" alt="" aria-hidden="true">
+    						<span>SEAFOOD</span>
+  						</div>
+						<video src="<?php echo get_template_directory_uri(); ?>/assets/vid/video2.mp4" id="home-hero-video" poster="<?php echo get_template_directory_uri(); ?>/assets/img/home/about-thumb2_new.jpg" controls="" playsinline=""></video>
+					</div>
+					<div class="text-center mt-4">
+						<button class="text-center btn-transcript btn-accordion" aria-haspopup="true" aria-expanded="false" aria-controls="transcript2" data-target="transcript2" aria-label="Seafood Toggle Video Transcript">VIDEO TRANSCRIPT</button>
+					</div>
+				</div>
+				<div class="wrap">
+					<div class="wrap__thumb">
+						<div class="wrap__thumb__title">
+    						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/about-logo.svg" alt="" aria-hidden="true">
+    						<span>BBQ SHORT RIB</span>
+  						</div>
+						<video src="<?php echo get_template_directory_uri(); ?>/assets/vid/video3.mp4" id="home-hero-video" poster="<?php echo get_template_directory_uri(); ?>/assets/img/home/about-thumb3_new.jpg" controls="" playsinline=""></video>
+					</div>
+					<div class="text-center mt-4">
+						<button class="text-center btn-transcript btn-accordion" aria-haspopup="true" aria-expanded="false" aria-controls="transcript3" data-target="transcript3" aria-label="BBQ Short Rib Toggle Video Transcript">VIDEO TRANSCRIPT</button>
+					</div>
+				</div>
+			</div>
+			<div id="transcript1" aria-labelledby="btn-accordion" aria-hidden="true" hidden class="mt-5 transcript">
+				<p class="text-white mb-0">
+					0:00 – 0:01<br>
+					[Sizzling sound. Intense music plays.]<br>
+					On-screen text: “How Crispy Do You Like…”<br>
+					<br>
+					0:02<br>
+					Visual: Chef’s gloved hands prepping rice.<br>
+					<br>
+					0:03<br>
+					Visual: Oil poured into a hot pan on an ignited stove.<br>
+					<br>
+					0:04<br>
+					On-screen text: “Your Crispy Rice?”<br>
+					<br>
+					0:05 – 0:07<br>
+					Visual: Chef places rice into the pan.<br>
+					<br>
+					0:08<br>
+					Visual: Rice flipped in the air from the pan.<br>
+					<br>
+					0:09<br>
+					On-screen text: “Crispy?”<br>
+					<br>
+					0:10<br>
+					[Sizzling sound.]<br>
+					Visual: Sauce squeezed onto rice in the pan.<br>
+					<br>
+					0:11<br>
+					On-screen text: “Crispier!”<br>
+					<br>
+					0:12<br>
+					[Sizzling sound.]<br>
+					Visual: Flames rise from the pan.<br>
+					<br>
+					0:13 – 0:14<br>
+					[Sizzling sound.]<br>
+					On-screen text: “Perfect!”<br>
+					<br>
+					0:15<br>
+					[Intense music stops.]<br>
+					Visual: Finished food plated.<br>
+					<br>
+					0:16<br>
+					On-screen text: “Katsu-ya Original” (top left corner).<br>
+					Visual: Finished food plated.<br>
+					<br>
+					0:17 – 0:18<br>
+					On-screen text: “Crispy Rice with Spicy Tuna”<br>
+					Visual: Finished food plated.<br>
+					<br>＜br＞
+					0:19 – 0:21<br>
+					On-screen text: “Sushi Katsu-ya” logo.
+				</p>
+			</div>
+			<div id="transcript2" aria-labelledby="btn-accordion" aria-hidden="true" hidden class="mt-5 transcript">
+				<p class="text-white mb-0"><br>
+					0:00 – 0:01<br>
+					[Upbeat music plays.]<br>
+					On-screen top text: “Too”<br>
+					On-screen bottom text: “Katsu-ya Original Miso Marinated Black Cod”<br>
+					Visual: Miso Marinated Black Cod<br>
+					<br>
+					0:01 – 0:02<br>
+					On-screen top text: “Too”<br>
+					On-screen bottom text: “Katsu-ya Original Creamy Popcorn Shrimp”<br>
+					Visual: Creamy Popcorn Shrimp Tempura<br>
+					<br>
+					0:03 – 0:04<br>
+					On-screen top text: “Too Tempting”<br>
+					On-screen bottom text: "Katsu-ya Original Robert Roll”<br>
+					Visual: Robert Roll<br>
+					<br>
+					0:04 – 0:05<br>
+					On-screen top text: “Too Tempting”<br>
+					On-screen bottom text: "Katsu-ya Original Sautéed Brussel Sprouts”<br>
+					Visual: Sautéed Brussel Sprouts<br>
+					<br>
+					0:06– 0:07<br>
+					On-screen top text: “Too Tempting to Look”<br>
+					On-screen bottom text: "Katsu-ya Original 4 ½ Roll”<br>
+					Visual: 4 ½ Roll<br>
+					<br>
+					0:07 – 0:08<br>
+					On-screen top text: “Too Tempting to Look”<br>
+					On-screen bottom text: "Katsu-ya Original BBQ Short Rib”<br>
+					Visual: BBQ Short Rib<br>
+					<br>
+					0:08 – 0:10<br>
+					On-screen top text: “Too Tempting to Look Away”<br>
+					On-screen bottom text: “Katsu-ya Original Yellowtail Jalapeño”<br>
+					Visual: Yellowtail Jalapeño<br>
+					<br>
+					0:10 – 0:11<br>
+					On-screen top text: “Too Tempting to Look Away”<br>
+					On-screen bottom text: “Katsu-ya Original Baked Crab Roll”<br>
+					Visual: Baked Crab Roll<br>
+					<br>
+					0:12 – 0:13<br>
+					On-screen top text: “Try Them All”<br>
+					On-screen bottom text: “Timeless Favorite Assorted Sashimi”<br>
+					Visual: Assorted Sashimi<br>
+					<br>
+					0:13 – 0:14<br>
+					On-screen top text: “Try Them All”<br>
+					On-screen bottom text: “Katsu-ya Original Spicy Albacore with Crispy Onion”<br>
+					Visual: Spicy Albacore with Crispy Onion<br>
+					<br>
+					0:15 – 0:17<br>
+					[Upbeat music fades]<br>
+					On-screen text: “Stop By Today Order Your Favorite”<br>
+					On-screen bottom text: Sushi Katsu-ya Logo
+				</p>
+			</div>
+			<div id="transcript3" aria-labelledby="btn-accordion" aria-hidden="true" hidden class="mt-5 transcript">
+				<p class="text-white mb-0">
+					0:00<br>
+					[Upbeat mysterious music plays.]<br>
+					Visual: BBQ Short Rib<br>
+					<br>
+					0:00<br>
+					On-screen text: “BBQ”<br>
+					On-screen bottom text: Sushi Katsu-ya Japanese Stamp Logo<br>
+					<br>
+					0:01<br>
+					Visual: BBQ Short Rib<br>
+					<br>
+					0:01 – 0:02<br>
+					On-screen text: “Short”<br>
+					On-screen bottom text: Sushi Katsu-ya Japanese Stamp Logo<br>
+					<br>
+					0:02<br>
+					Visual: BBQ Short Rib<br>
+					<br>
+					0:02 – 0:03<br>
+					On-screen text: “Rib”<br>
+					On-screen bottom text: Sushi Katsu-ya Japanese Stamp Logo<br>
+					<br>
+					0:03 – 0:07<br>
+					Visual: Chef hands place short ribs on grill<br>
+					<br>
+					0:07 – 0:09<br>
+					Visual: Chef hands use tong to flip short ribs on grill<br>
+					<br>
+					0:10 – 0:12<br>
+					Visual: Chef hands place sliced cabbage in pan on ignited stove<br>
+					<br>
+					0:12 – 0:13<br>
+					Visual: Chef hands place cut short ribs on top of sliced cabbage in pan on ignited stove and adds shishito peppers and tomato on top<br>
+					<br>
+					0:14 – 0:24<br>
+					Visual: Chef uses ladle to pour sauce over short ribs in pan on ignited stove and flames from ignited stove increase<br>
+					<br>
+					0:24 – 0:26<br>
+					Visual: BBQ short ribs being cooked in pan on ignited stove and flames increasing<br>
+					<br>
+					0:27 – 0:33<br>
+					Visual: Chef using utensil to grab pan from ignited stove and placing on top of a wooden trivet<br>
+					<br>
+					0:34 – 0:43<br>
+					On-screen bottom text: “BBQ Short Rib Ready to Indulge?”<br>
+					Visual: BBQ Short Rib<br>
+					<br>
+					0:43 – 0:47<br>
+					[Upbeat mysterious music fades.]<br>
+					On-screen text: Sushi Katsu-ya Logo<br>
+					On-screen text: @katsuyagroup
+				</p>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Our Brands -->
+	<section id="home-brands" class="bg-xl-gray py-lg relative" aria-labelledby="home-brands-title">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-19 offset-lg-2">
+					<div id="home-brands-header" class="d-lg-flex align-items-center mb-5">
+						<div id="home-brands-txt">
+							<h2 id="home-brands-title" class="home-title mb-4">Our Brands</h2>
+							<p class="mb-5">
+                Over the years, Katsu-ya Group’s family of brands has expanded throughout Southern California and beyond, with each location reflecting the spirit of its neighborhood while remaining true to the heart of Japanese dining. Every restaurant carries its own identity, yet all are united by the same philosophy: honoring tradition, embracing innovation, and celebrating the flavors that have made Katsu-ya a name recognized worldwide.
+							</p>
+						</div> 
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-katsuya.svg" alt="" id="home-brands-logo">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="home-brands-list" class="hidden">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-22 offset-lg-1">
+						<ul id="home-brands-list-logos" class="list-style-none mb-3 d-lg-flex flex-wrap d-none justify-content-center align-items-center">
+							<li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-sushi1.png" alt="Sushi Katsu-ya"></li>
+							<li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-sushi2.png" alt="Sushi Katsu-ya Seattle"></li>
+							<li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-izakaya1.png" alt="The Izaka-ya"></li>
+							<li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-izakaya2.png" alt="Little Izaka-ya"></li>
+							<li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-kiwami.png" alt="Kiwami"></li>
+							<li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-delivery.png" alt="Katsu-ya Delivery"></li>
+						</ul>
+						
+						<div class="row gy-md-2 gx-md-2 gy-0 gx-0">
+							<?php
+							$terms = get_terms([
+								'taxonomy'   => 'restaurants',
+								'hide_empty' => false,
+							]);
+							foreach($terms as $term):
+								$termLink = get_term_link($term);
+							?>
+							<div class="col-md-12">
+								<a href="<?php echo $termLink; ?>" class="wrap" id="<?php echo $term->slug; ?>">
+									<img src="<?php echo get_field('cat_thumb', $term); ?>" class="wrap__img" alt="">
+									<span class="wrap__logo">
+										<img src="<?php echo get_field('cat_logo', $term); ?>" class="wrap__logo__img" alt="<?php echo $term->name; ?>">
+									</span>
+								</a>
+							</div>
+							<?php endforeach; ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Order Online -->
+	<section id="home-online" class="py-lg" aria-labelledby="home-online-title">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-19 offset-lg-2">
+					<h2 id="home-online-title" class="home-title mb-0 ">Order online</h2>
+					<ul id="home-online-list" class="list-style-none mb-0 d-flex flex-wrap">
+						<?php get_template_part('template-parts/list', 'catering-nocode'); ?>
+					</ul>
+				</div>
+			</div> 
+		</div>
+	</section>
+	
+	<!-- Shop -->
+	<section id="home-shop" class="py-lg bg-xl-gray" aria-labelledby="home-shop-title">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-20 offset-lg-2">
+					<h2 id="home-shop-title" class="home-title mb-5">Shop</h2>
+					<div class="row">
+						<div class="col-20 offset-2">
+							<div class="row gy-5">
+								<div class="col-md-12">
+									<a href="https://merchandise.katsu-yagroup.com/?_gl=1*2p2ew1*_ga*MTgzMDk5NTY2LjE3NTEyNzI1Mjc.*_ga_S5W3VFDYBF*czE3NTE5NTMyMTEkbzQkZzEkdDE3NTE5NTMyNjMkajgkbDAkaDA."  target="_blank" rel="noopener noreferrer" aria-label="Merchandise (opens in new tab)" class="wrap">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/shop1.jpg" alt="" class="w-100">
+										<span class="wrap__txt">
+											Merchandise
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/icon-shop.svg" alt="" class="wrap__txt__icon">
+										</span>
+									</a>
+								</div>
+								<div class="col-md-12">
+									<a href="https://katsu-yagroup.cardfoundry.com/giftcards"  target="_blank" rel="noopener noreferrer" aria-label="Gift Cards (opens in new tab)" class="wrap">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/shop2.jpg" alt="" class="w-100">
+										<span class="wrap__txt">
+											Gift Cards
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/icon-shop.svg" alt="" class="wrap__txt__icon">
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Contact -->
+	<section id="home-contact" class="py-lg bg-d-gray" aria-labelledby="home-contact-title">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-20 offset-lg-2">
+					<div class="row gy-5">
+						<div class="col-lg-11 col-xl-10">
+							<h2 id="home-contact-title" class="home-title home-title--wht mb-5">Contact Us</h2>
+							<div id="home-contact-form">
+								<?php echo do_shortcode('[contact-form-7 id="2396a50" title="Contact Form"]'); ?>
+							</div>
+						</div>
+						<div id="home-contact-right" class="col-xl-10 offset-xl-4 col-lg-11 offset-lg-2">
+							<h3 class="home-contact-title mb-3">Store Contact Info</h3>
+							<div class="row gx-3 gy-3">
+								<div class="col-lg-12 col-md-8 col-12">
+									<a href="<?php echo home_url('restaurants/sushi-katsu-ya'); ?>" class="wrap wrap--1 d-flex align-items-center justify-content-center">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-sushi1.png" alt="Sushi Katsu-ya" class="wrap__img">
+									</a>
+								</div>
+								<div class="col-lg-12 col-md-8 col-12">
+									<a href="<?php echo home_url('restaurants/sushi-katsu-ya-seattle'); ?>" class="wrap wrap--2 d-flex align-items-center justify-content-center">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-sushi2.png" alt="Sushi Katsu-ya Seattle" class="wrap__img">
+									</a>
+								</div>
+								<div class="col-lg-12 col-md-8 col-12">
+									<a href="<?php echo home_url('restaurants/the-izaka-ya'); ?>" class="wrap wrap--3 d-flex align-items-center justify-content-center">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-izakaya1.png" alt="The Izaka-ya" class="wrap__img">
+									</a>
+								</div>
+								<div class="col-lg-12 col-md-8 col-12">
+									<a href="<?php echo home_url('restaurants/little-izaka-ya'); ?>" class="wrap wrap--4 d-flex align-items-center justify-content-center">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-izakaya2.png" alt="Little Izaka-ya" class="wrap__img">
+									</a>
+								</div>
+								<div class="col-lg-12 col-md-8 col-12">
+									<a href="<?php echo home_url('restaurants/kiwami'); ?>" class="wrap wrap--5 d-flex align-items-center justify-content-center">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-kiwami.png" alt="Kiwami" class="wrap__img">
+									</a>
+								</div>
+								<div class="col-lg-12 col-md-8 col-12">
+									<a href="<?php echo home_url('restaurants/katsu-ya-delivery'); ?>" class="wrap wrap--6 d-flex align-items-center justify-content-center">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-delivery.png" alt="Katsu-ya Delivery" class="wrap__img">
+									</a>
+								</div>
+							</div>
+							<h3 class="home-contact-title mb-3 mt-5">Catering service</h3>
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/contact1.jpg" alt="" class="w-100">
+							<div class="text-center">
+								<a href="<?php echo home_url('catering'); ?>" class="wrap wrap--7 d-md-block d-inline-block mt-3">Order Catering</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Ambiance -->
+	<section id="home-ambiance" class="py-lg bg-xl-gray" aria-labelledby="home-ambiance-title">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-20 offset-lg-2">
+					<h2 id="home-ambiance-title" class="home-title mb-5">Ambiance</h2>
+					<div class="row">
+						<div class="col-md-20 offset-md-2">
+							<div class="row gy-xl-4 gx-xl-4 gy-3 gx-3">
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance1.jpg" alt="Close-up of a sushi bar with white plates and chopsticks on a granite counter; orange chairs are visible in the background." class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance2.jpg" alt="Assorted sashimi plate featuring slices of tuna, salmon, white fish, and octopus, garnished with radish, lime, and wasabi." class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance3.jpg" alt="Customers cheering with small sake glasses over a wooden table; a bottle of Katsuya sake is visible in the foreground." class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance4.jpg" alt="Dark, intimate interior of a Japanese restaurant showing a long counter with small serving plates and decorative white and red lanterns." class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance5.jpg" alt="A woman smiling while holding a piece of sushi with chopsticks, with a plate of sushi and a bottle of sake on the table in the foreground." class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance6.jpg" alt="Golden Buddha statue centerpiece in a dimly lit, warm-toned Japanese restaurant dining area." class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance7.jpg" alt="Japanese restaurant sushi counter and high chairs, viewed through a circular opening, with an illuminated Orion beer lantern hanging overhead." class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance8.jpg" alt="Five pieces of white sushi roll with crab and black sesame seeds, served on a dark, modern rectangular platter." class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance9.jpg" alt="Chef in blue gloves pouring oil into a pan to create a large flame while searing rice patties in a commercial kitchen." class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance10.jpg" alt="Modern Japanese restaurant dining room with light wood tables and chairs, a decorative indoor tree, and a sign with the 'Katsu' character." class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance11.jpg" alt="Close-up of sizzling, glazed short ribs on a cast iron platter, garnished with bright green shishito peppers and a cherry tomato." class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance12.jpg" alt="Sushi chef in a Katsu-ya uniform carefully forming a piece of sushi by hand." class="w-100">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	<!-- Navi -->
+	<nav id="home-sp-nav" aria-label="Quick Links">
+		<ul class="list-style-none mb-0">
+			<li><a href="#home-online">Order Online</a></li>
+			<li><a href="#home-brands">Restaurants &amp; Menu</a></li>
+		</ul>
+	</nav>
+</main>
+
+<script>
+$(function() {
+	$(window).on("scroll", function () {
+		if ($(this).scrollTop() > 150) {
+			$("#home-sp-nav").addClass('active');
+		} else {
+			$("#home-sp-nav").removeClass('active');
+		}
+	});
+});	
+</script>
+<?php
+get_footer();

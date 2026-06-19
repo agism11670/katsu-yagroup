@@ -1,0 +1,119 @@
+<?php
+session_start();
+ob_start();
+?>
+<html>
+<meta charset="utf-8">
+<body>
+	<?php
+	// Contact Information
+	$contact1 =  $_POST['contact1'];	// CUSTOMER NAME
+	$contact2 =  $_POST['contact2'];	// PHONE NUMBER
+	$contact3 = $_POST['contact3'];	// COMPANY NAME
+	$contact4 = $_POST['contact4'];	// CELL PHONE NUMBER
+	$contact5 = $_POST['contact5'];	// EMAIL ADDRESS
+	?>
+	<h2>Contact Information</h2>
+	<hr>
+	<p><strong>CUSTOMER NAME:</strong> <?php echo $contact1; ?><br>
+	<strong>PHONE NUMBER:</strong> <?php echo $contact2; ?><br>
+	<strong>COMPANY NAME:</strong> <?php echo $contact3; ?><br>
+	<strong>CELL PHONE NUMBER:</strong> <?php echo $contact4; ?><br>
+	<strong>EMAIL ADDRESS:</strong> <?php echo $contact5; ?></p>
+	<br>
+	<?php
+	$event1 = $_POST['event1'];	// EVENT TYPE
+	$event2 = $_POST['event2'];	// EVENT DATE
+	$event3 = $_POST['event3'];	// EVENT START
+	$event4 = $_POST['event4'];	// EVENT END
+	$event5 = $_POST['event5'];	// CATERING LOCATION
+	$event6 = $_POST['event6'];	// ADULTS
+	$event7 = $_POST['event7'];	// KIDS
+	?>
+	<h2>Event Information</h2>
+	<hr>
+	<p>
+		<strong>EVENT TYPE:</strong> <?php echo $event1; ?><br>
+		<strong>EVENT DATE:</strong> <?php echo $event2; ?><br>
+		<strong>EVENT START:</strong> <?php echo $event3; ?><br>
+		<strong>EVENT END:</strong> <?php echo $event4; ?><br>
+		<strong>CATERING LOCATION:</strong> <?php echo $event5; ?><br>
+		<strong>ADULTS:</strong> <?php echo $event6; ?><br>
+		<strong>KIDS:</strong> <?php echo $event7; ?><br>
+	</p>
+	<br>
+	<?php 
+	$request1 = $_POST['request1']; // MEMO
+	$request2 = $_POST['request2']; // ALLERGY
+	$request3 = $_POST['request3'];  // PREFERENCE
+	?>
+	<h2>OTHER REQUEST</h2>
+	<hr>
+	<p>
+		<strong>MEMO:</strong><br>
+		<?php echo $request1; ?>
+	</p>
+	<p>
+		<strong>ALLERGY:</strong><br>
+		<?php echo $request2; ?>
+	</p>
+	<p>
+		<strong>PREFERENCE:</strong><br>
+		<?php echo $request3; ?>
+	</p>
+<?php
+$body = ob_get_contents();
+ob_end_clean();
+?>
+
+<?php 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+	
+$mail = new PHPMailer();
+
+try {
+	//Server settings
+	$mail->SMTPDebug = 0;
+	$mail->isSMTP();
+	$mail->Host = 'smtp.office365.com';
+	$mail->SMTPAuth = true; 
+	$mail->Username = 'catering@katsu-yagroup.com';
+	$mail->Password = 'mX3n0L0w';
+	$mail->SMTPSecure = 'TLS';
+	$mail->Port = 587;
+	
+	// Katsu-ya側
+	$mail->setFrom('catering@katsu-yagroup.com','KATSU-YA');
+	$mail->addAddress('catering@katsu-yagroup.com', 'KATSU-YA CATERING INQUIRY');
+	//$mail->addAddress('developer@seeknetusa.com', 'KATSU-YA CATERING INQUIRY TEST');
+	$mail->addReplyTo($contact5, $contact1);
+	//Content
+	$mail->isHTML(true);                                  // Set email format to HTML
+	$mail->Subject = 'Inquiry Notification - www.katsu-yagroup.com Catering';
+	$mail->Body    = "<p>You got a new catering order from https://www.katsu-yagroup.com/. <br>About the order detail, please check the email.</p>".$body;
+	$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+	$mail->send();
+	$mail->clearAllRecipients(); // Reset
+	$mail->clearReplyTos(); // Reset
+	
+	// お客様側
+	$mail->setFrom('catering@katsu-yagroup.com','KATSU-YA');
+	$mail->AddAddress($contact5, $contact1);
+	//Content
+	$mail->isHTML(true);
+	$mail->Subject = 'KATSU-YA CATERING - Inquiry Confirmation';
+	$mail->Body    = '<p>Thank you for the contact. <br>Please check the email to confirm your inquiry.</p>'.$body;
+	$mail->send();
+	header( "Location: /inquiry/inquiry-success" );
+	exit;
+} catch (Exception $e) {
+	echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+}
+?>
+	</body>
+</html>

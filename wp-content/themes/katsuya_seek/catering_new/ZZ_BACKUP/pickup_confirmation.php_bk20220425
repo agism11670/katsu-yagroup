@@ -1,0 +1,216 @@
+<div id="confirm">
+	<form action="<?php echo get_stylesheet_directory_uri(); ?>/catering_new/pickup_sender.php" method="post" id="finalconfirm">
+		<h2 class="text-center">Order Summary</h2>
+		<div class="d-lg-flex">
+			<div id="confirm__left">
+				<!-- Items -->
+				<?php 
+				$pickup1 = $_POST['family-a-qty']; 
+				$pickup2 = $_POST['family-b-qty']; 
+				$pickup3 = $_POST['suship-qty']; 
+				$pickup4 = $_POST['rollp-qty']; 
+				//$pickup5 = $_POST['lunch-box-qty']; 
+				
+				// Sushi Platter Item
+				$pickup3_item = array($_POST['tuna-p-qty'], $_POST['yellowtail-p-qty'], $_POST['salmon-p-qty'], $_POST['albacore-p-qty'], $_POST['shrimp-p-qty'], $_POST['eel-p-qty'], $_POST['whitefish-p-qty']);
+				$pickup3ItemArray = array('Tuna', 'Yellowtail', 'Salmon', 'Albacore', 'Shrimp', 'F W Eel', 'Whitefish');
+			
+				// Roll Platter Item
+				$pickup4_item = array($_POST['spicyt-p-qty'], $_POST['cali-p-qty'], $_POST['ysca-p-qty'], $_POST['avo-p-qty'], $_POST['creamys-p-qty'], $_POST['crab-p-qty']);
+				$pickup4ItemArray = array('Spicy Tuna', 'California', 'Yellow Scallion', 'Cucumber Avocado', 'Creamy Salmon', 'Baked Crab');
+				?>
+				<fieldset>
+					<h3 class="f-bold">Items</h3>
+					<!-- Family take out A -->
+					<?php if($pickup1 != '' && $pickup1 != 0): ?>
+					<?php $pickup1Price = $pickup1*90; ?>
+					<div class="mb-25">
+						<h4>Family Take Out(A)</h4>
+						<label for="pickup1">Quantity: </label> <input tabindex="-1" type="text" value="<?php echo $pickup1; ?>" name="pickup1" id="pickup1" readonly><br>
+						<input tabindex="-1" type="text" value="<?php echo '$'.$pickup1Price; ?>" name="pickup1_price" id="pickup1_price" readonly>
+					</div>
+					<?php endif; ?>
+					<!-- #Family take out A -->
+					
+					
+					<!-- Family take out B -->
+					<?php if($pickup2 != '' && $pickup2 != 0): ?>
+					<?php $pickup2Price = $pickup2*160; ?>
+					<div class="mb-25">
+						<h4>Family Take Out(B)</h4>
+						<label for="pickup2">Quantity: </label> <input tabindex="-1" type="text" value="<?php echo $pickup2; ?>" name="pickup2" id="pickup2" readonly><br>
+						<input tabindex="-1" type="text" value="<?php echo '$'.$pickup2Price; ?>" name="pickup2_price" id="pickup2_price" readonly>
+					</div>	
+					<?php endif; ?>
+					<!-- #Family take out B -->
+					
+					<!-- Sushi Platter -->
+					<?php if($pickup3 != '' && $pickup3 != 0): ?>
+					<?php $pickup3Price = $pickup3*15; ?>
+					<div class="mb-25">
+						<h4>Sushi Platter</h4>
+						<ul>
+							<?php $sushiNum = 0; ?>
+							<?php for($i=0; $i<7; $i++): ?>
+								<?php if($pickup3_item[$i] != '' || $pickup3_item[$i] != 0): ?>
+									<li><input tabindex="-1" type="text" value="<?php echo $pickup3ItemArray[$i]; ?> x <?php echo $pickup3_item[$i]; ?>" name="pickup3_item<?php echo $sushiNum; ?>" readonly></li>
+									<?php $sushiNum++; ?>
+								<?php endif; ?>
+							<?php endfor; ?>
+						</ul>
+						<label for="pickup3">Quantity: </label> <input tabindex="-1" type="text" value="<?php echo $pickup3; ?>" name="pickup3" id="pickup3" readonly><br>
+						<!-- 寿司の種類の数を渡す -->
+						<input tabindex="-1" type="hidden" name="sushinum" value="<?php echo $sushiNum; ?>" checked="checked">
+						<!-- #寿司の種類の数を渡す -->
+						<input tabindex="-1" type="text" value="<?php echo '$'.$pickup3Price; ?>" name="pickup3_price" id="pickup3_price" readonly>
+					</div>
+					<?php endif; ?>
+					<!-- #Sushi Platter -->
+					
+					<!-- Roll Platter -->
+					<?php if($pickup4 != '' && $pickup4 != 0): ?>
+					<?php 
+						if($pickup4_item[5] != '' || $pickup4_item[5] != 0) {
+							$pickup4Price = $pickup4*12 + ($pickup4_item[5]*1*$pickup4); 
+						} else {
+							$pickup4Price = $pickup4*12;
+						}
+					?>
+					<div class="mb-25">
+						<h4>Roll Platter</h4>
+						<ul>
+							<?php $rollNum = 0; ?>
+							<?php for($i=0; $i<6; $i++): ?>
+								<?php if($pickup4_item[$i] != '' || $pickup4_item[$i] != 0): ?>
+									<li><input tabindex="-1" type="text" value="<?php echo $pickup4ItemArray[$i]; ?> x <?php echo $pickup4_item[$i]; ?>" name="pickup4_item<?php echo $rollNum; ?>" readonly></li>
+									<?php $rollNum++; ?>
+								<?php endif; ?>
+							<?php endfor; ?>
+						</ul>
+						<label for="pickup4">Quantity: </label> <input tabindex="-1" type="text" value="<?php echo $pickup4; ?>" name="pickup4" id="pickup4" readonly><br>
+						<!-- ロールの種類の数を渡す -->
+						<input tabindex="-1" type="hidden" name="rollnum" value="<?php echo $rollNum; ?>" checked="checked">
+						<!-- #ロールの種類の数を渡す -->
+						<input tabindex="-1" type="text" value="<?php echo '$'.$pickup4Price; ?>" name="pickup4_price" id="pickup4_price" readonly>
+					</div>
+					<?php endif; ?>
+					<!-- #Roll Platter -->
+					
+					<!-- Lunchbox -->
+					<?php /*
+					<?php if($pickup5 != '' && $pickup5 != 0): ?>
+					<?php $pickup5Price = $pickup5*25; ?>
+					<div class="mb-25">
+						<h4 class="mt-15">Lunch Box</h4>
+						<label for="pickup5">Quantity: </label> <input tabindex="-1" type="text" value="<?php echo $pickup5; ?>" name="pickup5" id="pickup5" readonly><br>
+						<input tabindex="-1" type="text" value="<?php echo '$'.$pickup5Price; ?>" name="pickup5_price" id="pickup5_price" readonly>
+					</div>
+					<?php endif; ?>
+					*/ ?>
+					<!-- #Lunchbox-->
+						
+					<!-- Total Price -->
+					<div id="totalprice">
+						<?php /*$grandTotal = $pickup1Price + $pickup2Price + $pickup3Price + $pickup4Price + $pickup5Price;*/ ?>
+						<?php $grandTotal = $pickup1Price + $pickup2Price + $pickup3Price + $pickup4Price; ?>
+						<label for="grandtotal">Total Price: </label> <input tabindex="-1" type="text" value="<?php echo '$'.$grandTotal; ?>" name="grandtotal" id="grandtotal" readonly>
+					</div>
+					
+				</fieldset>
+				<!-- #Items -->
+				
+			</div>
+			
+			<div id="confirm__right">
+				<!-- CONTACT INFORMATION -->
+				<?php 
+				$contact1 = $_POST['c-f-name']; 
+				$contact2 = $_POST['c-f-phone']; 
+				$contact3 = $_POST['c-f-company']; 
+				$contact4 = $_POST['c-f-cell']; 
+				$contact5 = $_POST['c-f-email']; 
+				?>
+				<fieldset>
+					<h3 class="f-bold">Contact Information</h3>
+					
+					<!-- Customer Name -->
+					<label for="contact1">Customer Name: </label> <input tabindex="-1" type="text" value="<?php echo $contact1; ?>" name="contact1" id="contact1" readonly><br>
+					
+					<!-- PHONE NUMBER -->
+					<label for="contact2">Phone Number: </label> <input tabindex="-1" type="text" value="<?php echo $contact2; ?>" name="contact2" id="contact2" readonly><br>
+					
+					<!-- COMPANY NAME -->
+					<?php if($contact3): ?>
+					<label for="contact3">Company Name: </label> <input tabindex="-1" type="text" value="<?php echo $contact3; ?>" name="contact3" id="contact3" readonly><br>
+					<?php endif; ?>
+					
+					<!-- CELL PHONE NUMBER -->
+					<?php if($contact4): ?>
+					<label for="contact4">Cell Phone Number: </label> <input tabindex="-1" type="text" value="<?php echo $contact4; ?>" name="contact4" id="contact4" readonly><br>
+					<?php endif; ?>
+					
+					<!-- CELL PHONE NUMBER -->
+					<label for="contact5">Email Address: </label> <input tabindex="-1" type="text" value="<?php echo $contact5; ?>" name="contact5" id="contact5" readonly>
+				</fieldset>
+				<!-- #CONTACT INFORMATION -->
+				
+				<!-- EVENT INFORMATION -->
+				<?php 
+				$event1 = $_POST['event']; 
+				$event2 = $_POST['date']; 
+				$event3 = $_POST['time']; 
+				$event4 = $_POST['p-location']; 
+				$event5 = $_POST['d-location']; 
+				?>
+				<fieldset>
+					<h3 class="f-bold">Event Information</h3>
+					
+					<!-- Pickup or Dropoff -->
+					<label for="event1">Event Type: </label> <input tabindex="-1" type="text" value="<?php echo $event1; ?>" name="event1" id="event1" readonly><br>
+					
+					<!-- Event Date -->
+					<label for="event2">Event Date: </label> <input tabindex="-1" type="text" value="<?php echo $event2; ?>" name="event2" id="event2" readonly><br>
+					
+					<!-- PICK UP OR DROP OFF TIME -->
+					<label for="event3">Pick Up or Drop Off Time: </label> <input tabindex="-1" type="text" value="<?php echo $event3; ?>" name="event3" id="event3" readonly><br>
+					
+					<!-- PICK UP LOCATION -->
+					<?php if($event1 == "Pick up"): ?>
+					<label for="event4">Pick Up Location: </label> <input tabindex="-1" type="text" value="<?php echo $event4; ?>" name="event4" id="event4" readonly><br>
+					<!-- DROP OFF LOCATION -->
+					<?php else: ?>
+					<label for="event5">Drop Off Location: </label> <input tabindex="-1" type="text" value="<?php echo $event5; ?>" name="event5" id="event5" readonly><br>
+					<?php endif; ?>
+				</fieldset>
+				<!-- #EVENT INFORMATION -->
+				
+				<!-- OTHER REQUEST -->
+				<?php 
+				$request1 = $_POST['c-memo']; 
+				$request2 = $_POST['c-allergy']; 
+				$request3 = $_POST['c-preference']; 
+				?>
+				<fieldset>
+					<h3 class="f-bold">Other Request</h3>
+					
+					<!-- MEMO -->
+					<label for="request1">Memo: </label> <textarea tabindex="-1" type="text" name="request1" id="request1" readonly><?php echo $request1; ?></textarea><br>
+					
+					<!-- ALLERGY -->
+					<label for="request2">Allergy: </label> <textarea tabindex="-1" type="text" name="request2" id="request2" readonly><?php echo $request2; ?></textarea><br>
+					
+					<!-- PREFERENCE -->
+					<label for="request3">Preference: </label> <textarea tabindex="-1" type="text" name="request3" id="request3" readonly><?php echo $request3; ?></textarea>
+				</fieldset>
+				<!-- #OTHER REQUEST -->
+			</div>
+		</div>
+		
+		<div class="button-wrap">
+        <button class="nav-btn bg-d-navy" onClick="window.history.go(-1); return false;" aria-label="Go back to the previous page">Go Back</button>
+        <input type="submit" class="nav-btn bg-d-navy" value="Send">
+      </div>
+
+	</form>
+	<p id="success-message" class="text-center d-none" role="alert"></p>
+</div>

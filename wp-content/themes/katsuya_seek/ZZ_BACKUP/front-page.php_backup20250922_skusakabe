@@ -1,0 +1,357 @@
+<?php
+/**
+ * 固定ページ：ホーム
+ *
+ * @package Katsu-ya
+ */
+
+get_header();
+?>
+<main id="main">
+	<!-- Hero -->
+	<div id="home-hero">
+		<h1 id="home-hero-title">Where Every <br class="d-block d-md-none">Bite Tells a Story</h1>
+		<div id="home-hero-scroll"></div>
+	</div>
+	
+	<!-- About -->
+	<section id="home-about" class="bg-d-gray pb-lg" aria-labelledby="home-about-title">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-20 offset-lg-2">
+					<h2 class="home-title home-title--wht mb-4" id="home-about-title">About</h2>
+					<h3 class="text-white" id="home-about-title-sm">Blending Tradition with Creativity</h3>
+					<p class="mb-5 text-white">
+						Since 1997, Master Sushi Chef Katsuya Uechi has transformed the sushi landscape in Los Angeles, setting a new standard for Japanese dining. Nearly three decades later, our signature dishes—now celebrated worldwide—continue to blend timeless tradition with modern creativity. Today, Katsu-ya Group offers a refined yet welcoming dining experience—where tradition is honored and innovation is celebrated.
+					</p>
+				</div>
+			</div>
+			<div id="home-about-video-slider">
+				<div class="wrap">
+					<div class="wrap__thumb">
+						<div class="wrap__thumb__title">
+    						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/about-logo.svg" alt="" aria-hidden="true">
+    						<span>CRISPY RICE WITH SPICY TUNA</span>
+  						</div>
+						<video src="<?php echo get_template_directory_uri(); ?>/assets/vid/video1.mp4" id="home-hero-video" poster="<?php echo get_template_directory_uri(); ?>/assets/img/home/about-thumb1_new.jpg" controls="" playsinline=""></video>
+					</div>
+					<div class="text-center mt-4">
+						<button class="text-center btn-transcript btn-accordion" aria-haspopup="true" aria-expanded="false" aria-controls="transcript1" data-target="transcript1">VIDEO TRANSCRIPT</button>
+					</div>
+				</div>
+				<div class="wrap">
+					<div class="wrap__thumb">
+						<div class="wrap__thumb__title">
+    						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/about-logo.svg" alt="" aria-hidden="true">
+    						<span>SEAFOOD</span>
+  						</div>
+						<video src="<?php echo get_template_directory_uri(); ?>/assets/vid/video2.mp4" id="home-hero-video" poster="<?php echo get_template_directory_uri(); ?>/assets/img/home/about-thumb2_new.jpg" controls="" playsinline=""></video>
+					</div>
+					<div class="text-center mt-4">
+						<button class="text-center btn-transcript btn-accordion" aria-haspopup="true" aria-expanded="false" aria-controls="transcript2" data-target="transcript2">VIDEO TRANSCRIPT</button>
+					</div>
+				</div>
+				<div class="wrap">
+					<div class="wrap__thumb">
+						<div class="wrap__thumb__title">
+    						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/about-logo.svg" alt="" aria-hidden="true">
+    						<span>BBQ SHORT RIB</span>
+  						</div>
+						<video src="<?php echo get_template_directory_uri(); ?>/assets/vid/video3.mp4" id="home-hero-video" poster="<?php echo get_template_directory_uri(); ?>/assets/img/home/about-thumb3_new.jpg" controls="" playsinline=""></video>
+					</div>
+					<div class="text-center mt-4">
+						<button class="text-center btn-transcript btn-accordion" aria-haspopup="true" aria-expanded="false" aria-controls="transcript3" data-target="transcript3">VIDEO TRANSCRIPT</button>
+					</div>
+				</div>
+			</div>
+			<div id="transcript1" aria-labelledby="btn-accordion" aria-hidden="true" hidden class="mt-5 transcript">
+				<p class="text-white mb-0">
+					00:00<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+					<br>
+					00:04<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+					<br>
+					00:11<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+					<br>
+					00:14<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+					<br>
+					00:16<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+					<br>
+					<br>
+					00:20<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+					<br>
+					00:23<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing
+				</p>
+			</div>
+			<div id="transcript2" aria-labelledby="btn-accordion" aria-hidden="true" hidden class="mt-5 transcript">
+				<p class="text-white mb-0">
+					00:00<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+					<br>
+					00:04<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+					<br>
+					00:11<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+					<br>
+					00:14<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+					<br>
+					00:16<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+					<br>
+					<br>
+					00:20<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+				</p>
+			</div>
+			<div id="transcript3" aria-labelledby="btn-accordion" aria-hidden="true" hidden class="mt-5 transcript">
+				<p class="text-white mb-0">
+					00:00<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+					<br>
+					00:04<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+					<br>
+					00:11<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+					<br>
+					00:14<br>
+					Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing<br>
+				</p>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Our Brands -->
+	<section id="home-brands" class="bg-xl-gray py-lg relative" aria-labelledby="home-brands-title">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-19 offset-lg-2">
+					<div class="d-lg-flex align-items-center justify-content-between mb-5">
+						<div id="home-brands-txt">
+							<h2 id="home-brands-title" class="home-title mb-4">Our Brands</h2>
+							<p class="mb-5">
+								Over the years, Katsu-ya Group's family of brands has expanded throughout Southern California and beyond, with each location reflecting the spirit of its neighborhood while remaining true to the heart of Japanese dining. Every restaurant carries its own identity, yet all are united by the same philosophy: honoring tradition, embracing innovation, and celebrating the flavors that have made Katsu-ya a name recognized worldwide.
+							</p>
+						</div> 
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-katsuya.svg" alt="Katsu-Ya" id="home-brands-logo">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="home-brands-list" class="hidden">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-22 offset-lg-1">
+						<ul id="home-brands-list-logos" class="list-style-none mb-3 d-lg-flex flex-wrap d-none justify-content-center align-items-center">
+							<li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-sushi1.png" alt="Sushi Katsu-ya"></li>
+							<li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-sushi2.png" alt="Sushi Katsu-ya Seattle"></li>
+							<li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-izakaya1.png" alt="The Izaka-ya"></li>
+							<li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-izakaya2.png" alt="Little Izaka-ya"></li>
+							<li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-kiwami.png" alt="Kiwami"></li>
+							<li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-delivery.png" alt="Katsu-ya Delivery"></li>
+						</ul>
+						
+						<div class="row gy-md-2 gx-md-2 gy-0 gx-0">
+							<?php
+							$terms = get_terms([
+								'taxonomy'   => 'restaurants',
+								'hide_empty' => false,
+							]);
+							foreach($terms as $term):
+								$termLink = get_term_link($term);
+							?>
+							<div class="col-md-12">
+								<a href="<?php echo $termLink; ?>" class="wrap" id="<?php echo $term->slug; ?>">
+									<img src="<?php echo get_field('cat_thumb', $term); ?>" class="wrap__img" alt="">
+									<span class="wrap__logo">
+										<img src="<?php echo get_field('cat_logo', $term); ?>" class="wrap__logo__img" alt="<?php echo $term->name; ?>">
+									</span>
+								</a>
+							</div>
+							<?php endforeach; ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Order Online -->
+	<section id="home-online" class="py-lg" aria-labelledby="home-online-title">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-19 offset-lg-2">
+					<h2 id="home-online-title" class="home-title mb-0 ">Order online</h2>
+					<ul id="home-online-list" class="list-style-none mb-0 d-flex flex-wrap">
+						<?php get_template_part('template-parts/list', 'catering-nocode'); ?>
+					</ul>
+				</div>
+			</div> 
+		</div>
+	</section>
+	
+	<!-- Shop -->
+	<section id="home-shop" class="py-lg bg-xl-gray" aria-labelledby="home-shop-title">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-20 offset-lg-2">
+					<h2 id="home-shop-title" class="home-title mb-5">Shop</h2>
+					<div class="row">
+						<div class="col-20 offset-2">
+							<div class="row gy-5">
+								<div class="col-md-12">
+									<a href="https://merchandise.katsu-yagroup.com/?_gl=1*2p2ew1*_ga*MTgzMDk5NTY2LjE3NTEyNzI1Mjc.*_ga_S5W3VFDYBF*czE3NTE5NTMyMTEkbzQkZzEkdDE3NTE5NTMyNjMkajgkbDAkaDA."  target="_blank" rel="noopener noreferrer" aria-label="Merchandise (opens in new tab)" class="wrap">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/shop1.jpg" alt="" class="w-100">
+										<span class="wrap__txt">
+											Merchandise
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/icon-shop.svg" alt="" class="wrap__txt__icon">
+										</span>
+									</a>
+								</div>
+								<div class="col-md-12">
+									<a href="https://katsu-yagroup.cardfoundry.com/giftcards"  target="_blank" rel="noopener noreferrer" aria-label="Gift Cards (opens in new tab)" class="wrap">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/shop2.jpg" alt="" class="w-100">
+										<span class="wrap__txt">
+											Gift Cards
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/icon-shop.svg" alt="" class="wrap__txt__icon">
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Contact -->
+	<section id="home-contact" class="py-lg bg-d-gray" aria-labelledby="home-contact-title">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-20 offset-lg-2">
+					<div class="row gy-5">
+						<div class="col-lg-11 col-xl-10">
+							<h2 id="home-contact-title" class="home-title home-title--wht mb-5">Contact Us</h2>
+							<div id="home-contact-form">
+								<?php echo do_shortcode('[contact-form-7 id="2396a50" title="Contact Form"]'); ?>
+							</div>
+						</div>
+						<div id="home-contact-right" class="col-xl-10 offset-xl-4 col-lg-11 offset-lg-2">
+							<h3 class="home-contact-title mb-3">Store Contact Info</h3>
+							<div class="row gx-3 gy-3">
+								<div class="col-lg-12 col-md-8 col-12">
+									<a href="<?php echo home_url('restaurants/sushi-katsu-ya'); ?>" class="wrap wrap--1 d-flex align-items-center justify-content-center">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-sushi1.png" alt="Sushi Katsu-ya" class="wrap__img">
+									</a>
+								</div>
+								<div class="col-lg-12 col-md-8 col-12">
+									<a href="<?php echo home_url('restaurants/sushi-katsu-ya-seattle'); ?>" class="wrap wrap--2 d-flex align-items-center justify-content-center">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-sushi2.png" alt="Sushi Katsu-ya Seattle" class="wrap__img">
+									</a>
+								</div>
+								<div class="col-lg-12 col-md-8 col-12">
+									<a href="<?php echo home_url('restaurants/the-izaka-ya'); ?>" class="wrap wrap--3 d-flex align-items-center justify-content-center">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-izakaya1.png" alt="The Izaka-ya" class="wrap__img">
+									</a>
+								</div>
+								<div class="col-lg-12 col-md-8 col-12">
+									<a href="<?php echo home_url('restaurants/little-izaka-ya'); ?>" class="wrap wrap--4 d-flex align-items-center justify-content-center">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-izakaya2.png" alt="Little Izaka-ya" class="wrap__img">
+									</a>
+								</div>
+								<div class="col-lg-12 col-md-8 col-12">
+									<a href="<?php echo home_url('restaurants/kiwami'); ?>" class="wrap wrap--5 d-flex align-items-center justify-content-center">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-kiwami.png" alt="Kiwami" class="wrap__img">
+									</a>
+								</div>
+								<div class="col-lg-12 col-md-8 col-12">
+									<a href="<?php echo home_url('restaurants/katsu-ya-delivery'); ?>" class="wrap wrap--6 d-flex align-items-center justify-content-center">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo-delivery.png" alt="Katsu-ya Delivery" class="wrap__img">
+									</a>
+								</div>
+							</div>
+							<h3 class="home-contact-title mb-3 mt-5">Catering service</h3>
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/contact1.jpg" alt="" class="w-100">
+							<div class="text-center">
+								<a href="<?php echo home_url('catering'); ?>" class="wrap wrap--7 d-md-block d-inline-block mt-3">Order Catering</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Ambiance -->
+	<section id="home-ambiance" class="py-lg bg-xl-gray" aria-labelledby="home-ambiance-title">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-20 offset-lg-2">
+					<h2 id="home-ambiance-title" class="home-title mb-5">Ambiance</h2>
+					<div class="row">
+						<div class="col-md-20 offset-md-2">
+							<div class="row gy-xl-4 gx-xl-4 gy-3 gx-3">
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance1.jpg" alt="Ambiance of Katsu-Ya" class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance2.jpg" alt="Ambiance of Katsu-Ya" class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance3.jpg" alt="Ambiance of Katsu-Ya" class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance4.jpg" alt="Ambiance of Katsu-Ya" class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance5.jpg" alt="Ambiance of Katsu-Ya" class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance6.jpg" alt="Ambiance of Katsu-Ya" class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance7.jpg" alt="Ambiance of Katsu-Ya" class="w-100">
+								</div>
+								<div class="col-lg-6 col-12">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/home/ambiance8.jpg" alt="Ambiance of Katsu-Ya" class="w-100">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	<!-- Navi -->
+	<nav id="home-sp-nav" aria-label="Quick Links">
+		<ul class="list-style-none mb-0">
+			<li><a href="#home-online">Order Online</a></li>
+			<li><a href="#home-brands">Restaurants &amp; Menu</a></li>
+		</ul>
+	</nav>
+</main>
+
+<script>
+$(function() {
+	$(window).on("scroll", function () {
+		if ($(this).scrollTop() > 150) {
+			$("#home-sp-nav").addClass('active');
+		} else {
+			$("#home-sp-nav").removeClass('active');
+		}
+	});
+});	
+</script>
+<?php
+get_footer();

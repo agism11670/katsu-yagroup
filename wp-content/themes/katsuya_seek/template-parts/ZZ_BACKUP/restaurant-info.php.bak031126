@@ -1,0 +1,80 @@
+<article class="restaurants-wrap mb-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-22 offset-lg-1">
+				<?php if(has_post_thumbnail()): ?>
+				<div class="restaurants-wrap__thumb"><?php the_post_thumbnail(); ?></div>
+				<?php else: ?>
+				<div class="restaurants-wrap__nothumb"><?php the_post_thumbnail(); ?></div>
+				<?php endif; ?>
+				<div class="restaurants-wrap-info">
+					<h3 class="restaurants-wrap-info__title"><?php the_title(); ?></h3>
+					<div class="row gy-4 flex-row-reverse">
+						<div class="col-lg-6 col-md-7">
+							<ul class="restaurants-wrap-info__btns list-style-none">
+								<?php
+								$menu = get_field('restaurant_menu');
+								if($menu):
+								?>
+								<li><a href="<?php echo $menu; ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php the_title(); ?> Menu(PDF, opens in new tab)">Menu</a></li>
+								<?php endif; ?>
+								<li><a href="<?php echo get_field('restaurant_online'); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php the_title(); ?> Order Online (opens in new tab)">Order Online</a></li>
+								<?php
+								$uber = get_field('restaurant_uber');
+								$postmates = get_field('restaurant_post');
+								?>
+								<?php if($uber): ?>
+								<li><a href="<?php echo $uber; ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php the_title(); ?> Uber Eats (opens in new tab)">Uber Eats</a></li>
+								<?php endif; ?>
+								<?php if($postmates): ?>
+								<li><a href="<?php echo $postmates; ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php the_title(); ?> Postmates (opens in new tab)">Postmates</a></li>
+								<?php endif; ?>
+							</ul>
+						</div>
+						<div class="col-lg-18 col-md-17">
+							<div class="row gy-3">
+								<div class="col-lg-11">
+									<ul class="restaurants-wrap-info__info list-style-none mt-md-3">
+										<li class="wrap">
+											<div class="wrap__icon wrap__icon--map"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-map.svg" alt="Address"></div>
+											<div class="wrap__txt"><?php echo get_field('restaurant_address'); ?></div>
+										</li>
+										<?php 
+										$phone = get_field('restaurant_phone');
+										if($phone):
+										?>
+										<li class="wrap">
+											<div class="wrap__icon wrap__icon--map"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-phone.svg" alt="Phone"></div>
+											<div class="wrap__txt"><?php echo $phone; ?></div>
+										</li>
+										<?php endif; ?>
+										<li class="wrap">
+											<div class="wrap__icon wrap__icon--map"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-direction.svg" alt=""></div>
+											<a href="<?php echo get_field('restaurant_direction'); ?>" class="wrap__txt" target="_blank" rel="noopener noreferrer" aria-label="<?php the_title(); ?> on Google Map (opens in new tab)">Get Directions</a>
+										</li>
+									</ul>
+								</div>
+								<div class="col-lg-13">
+									<ul class="restaurants-wrap-info__hour list-style-none">
+										<?php if (have_rows('restaurant_hour')) : while (have_rows('restaurant_hour')) : the_row(); ?>
+										<li class="wrap">
+											<span><?php echo get_sub_field('restaurant_hour_day'); ?></span>
+											<?php echo get_sub_field('restaurant_hour_hour'); ?>
+										</li>
+										<?php endwhile; endif; ?>
+									</ul>
+									<?php 
+									$note = get_field('restaurant_note');
+									if($note):
+									?>
+									<p class="f-sm f-red"><?php echo $note; ?></p>
+									<?php endif; ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</article>
