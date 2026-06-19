@@ -55,6 +55,47 @@ $(function() {
 		});
 	});
 });
+/* Restaurants & Menu: ロケーションリンク選択時にドロップダウンを閉じる */
+$(function() {
+	$('.dropdown__menu--restaurants a[role="menuitem"]').on('click', function() {
+		var $link    = $(this);
+		var $submenu = $link.closest('.dropdown__menu');
+		var $btn     = $('#' + $submenu.attr('aria-labelledby'));
+
+		// 同一ページ内アンカーの場合は、メニューを閉じる前に遷移先へフォーカスを移す
+		var href      = $link.attr('href') || '';
+		var hashIndex = href.indexOf('#');
+		if (hashIndex !== -1 && this.pathname === window.location.pathname) {
+			var id     = href.slice(hashIndex + 1);
+			// アンカーIDを持つ<article>へフォーカス
+			var target = id ? document.getElementById(id) : null;
+			if (target) {
+				if (!target.hasAttribute('tabindex')) {
+					target.setAttribute('tabindex', '-1');
+				}
+				target.focus();
+			}
+		}
+
+		// ドロップダウン本体を閉じる
+		$btn.attr('aria-expanded', 'false');
+		$submenu.attr('aria-hidden', 'true').slideUp(200, function() {
+			$submenu.prop('hidden', true);
+		});
+
+		// モバイルはフルスクリーンのオーバーレイメニューごと閉じる
+		if ($link.closest('#header-sp-menu').length) {
+			$('#header-sp-toggler')
+				.attr('aria-expanded', 'false')
+				.attr('aria-label', 'Open main menu')
+				.removeClass('active');
+			$('#header-sp-menu')
+				.attr('aria-hidden', 'true')
+				.prop('hidden', true)
+				.hide();
+		}
+	});
+});
 $(function() {
 	var $toggler   = $('#header-sp-toggler');
 	var $menuPanel = $('#header-sp-menu');

@@ -18,6 +18,9 @@
 #header-sp-menu__inner__menu .dropdown__menu--restaurants .dropdown__sublist li:last-child{margin-bottom:0}
 #header-sp-menu__inner__menu .dropdown__menu--restaurants .dropdown__sublist li a{font-size:16px;font-weight:400;border-bottom:none;display:inline-block;padding:0 0 0 16px}
 #header-sp-menu__inner__menu .dropdown__menu--restaurants .dropdown__group--single>a{border-bottom:none}
+/* Programmatic scroll-target focus (set via JS, tabindex=-1): no outline box.
+   Interactive children keep their own focus indicators. */
+.restaurants-wrap[tabindex]:focus,.restaurants-wrap-info__title[tabindex]:focus{outline:none}
 /* Anchor offset so the fixed header doesn't cover the targeted location */
 .restaurants-wrap{scroll-margin-top:160px}
 @media screen and (max-width: 1199px){.restaurants-wrap{scroll-margin-top:130px}}

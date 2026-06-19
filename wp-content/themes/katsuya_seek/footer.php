@@ -105,7 +105,7 @@
 </div>
 
 <!-- JS -->
-<script src="<?php echo get_template_directory_uri(); ?>/assets/js/custom.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/custom.js?2"></script>
 
 <?php wp_footer(); ?>
 

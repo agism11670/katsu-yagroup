@@ -39,7 +39,7 @@
 	<!-- CSS -->
 	<!-- Bootstrap -->
 	<link href="<?php echo get_template_directory_uri(); ?>/assets/vendor/bootstrap/bootstrap.css" rel="stylesheet">
-	<link href="<?php echo get_template_directory_uri(); ?>/assets/css/custom.css?2" rel="stylesheet">
+	<link href="<?php echo get_template_directory_uri(); ?>/assets/css/custom.css?3" rel="stylesheet">
 	<link href="<?php echo get_template_directory_uri(); ?>/style.css" rel="stylesheet">
 	<!-- Animation CSS -->
 	<link href="<?php echo get_template_directory_uri(); ?>/assets/vendor/animate_css/animate.min.css" rel="stylesheet">
