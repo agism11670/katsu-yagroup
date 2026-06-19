@@ -1,4 +1,9 @@
-<article class="restaurants-wrap mb-5">
+<?php
+// Anchor target for the header "Restaurants & Menu" dropdown.
+// Uses the location post slug (unique) so header links can jump straight here.
+$kt_location_slug = get_post_field( 'post_name', get_the_ID() );
+?>
+<article id="<?php echo esc_attr( $kt_location_slug ); ?>" class="restaurants-wrap mb-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-22 offset-lg-1">
@@ -18,11 +23,11 @@
 								?>
 								<li><a href="<?php echo $menu; ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php the_title(); ?> Menu(PDF, opens in new tab)">Menu</a></li>
 								<?php endif; ?>                
-                <?php
-                $term_slug = $args['terms'] ?? '';
-                $title_id = preg_replace('/[^a-zA-Z0-9]/', '', get_the_title());
-                $section_id = $term_slug . '_' . $title_id;
-                ?>
+								<?php
+								$term_slug = $args['terms'] ?? '';
+								$title_id = preg_replace('/[^a-zA-Z0-9]/', '', get_the_title());
+								$section_id = $term_slug . '_' . $title_id;
+								?>
 								<li><a id="OrderOnline_<?php echo esc_attr($section_id); ?>" href="<?php echo get_field('restaurant_online'); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php the_title(); ?> Order Online (opens in new tab)">Order Online</a></li>
 								<?php
 								$uber = get_field('restaurant_uber');

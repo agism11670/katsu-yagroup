@@ -70,6 +70,11 @@ $term = get_queried_object();
 			$args = array(
 				'posts_per_page' => -1,
 				'post_type' => 'locations',
+				// Keep the same order as the header dropdown so anchor links line up.
+				'orderby' => array(
+					'menu_order' => 'ASC',
+					'title'      => 'ASC',
+				),
 				'tax_query' => array(
 					array(
 						'taxonomy' => 'restaurants',

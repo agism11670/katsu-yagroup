@@ -39,7 +39,7 @@
 	<!-- CSS -->
 	<!-- Bootstrap -->
 	<link href="<?php echo get_template_directory_uri(); ?>/assets/vendor/bootstrap/bootstrap.css" rel="stylesheet">
-	<link href="<?php echo get_template_directory_uri(); ?>/assets/css/custom.css?1" rel="stylesheet">
+	<link href="<?php echo get_template_directory_uri(); ?>/assets/css/custom.css?2" rel="stylesheet">
 	<link href="<?php echo get_template_directory_uri(); ?>/style.css" rel="stylesheet">
 	<!-- Animation CSS -->
 	<link href="<?php echo get_template_directory_uri(); ?>/assets/vendor/animate_css/animate.min.css" rel="stylesheet">
@@ -79,17 +79,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<!-- Restaurants & Menus -->
 					<li role="none" class="dropdown">
 						<button id="btn-restaurants" role="menuitem" class="dropdown__btn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-restaurants" data-target="submenu-restaurants">Restaurants &amp; menu</button>
-						<ul id="submenu-restaurants" role="menu" aria-labelledby="btn-restaurants" aria-hidden="true" hidden class="list-style-none mb-0 dropdown__menu">
-							<?php
-							$terms = get_terms([
-								'taxonomy'   => 'restaurants',
-								'hide_empty' => false,
-							]);
-							foreach($terms as $term) {
-								$termLink = get_term_link($term);
-								echo '<li role="none"><a href="'.$termLink.'" role="menuitem">'.$term->name.'</a></li>';
-							}
-							?>
+						<ul id="submenu-restaurants" role="menu" aria-labelledby="btn-restaurants" aria-hidden="true" hidden class="list-style-none mb-0 dropdown__menu dropdown__menu--restaurants">
+							<?php get_template_part('template-parts/list', 'restaurants'); ?>
 						</ul>
 					</li>
 					<!-- Order Online -->
@@ -130,17 +121,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<!-- Restaurants & Menus -->
 						<li role="none" class="dropdown">
 							<button id="btn-restaurants-sp" role="menuitem" class="dropdown__btn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-restaurants-sp" data-target="submenu-restaurants-sp">Restaurants &amp; menu</button>
-							<ul id="submenu-restaurants-sp" role="menu" aria-labelledby="btn-restaurants-sp" aria-hidden="true" hidden class="list-style-none mb-0 dropdown__menu">
-								<?php
-								$terms = get_terms([
-									'taxonomy'   => 'restaurants',
-									'hide_empty' => false,
-								]);
-								foreach($terms as $term) {
-									$termLink = get_term_link($term);
-									echo '<li role="none"><a href="'.$termLink.'" role="menuitem">'.$term->name.'</a></li>';
-								}
-								?>
+							<ul id="submenu-restaurants-sp" role="menu" aria-labelledby="btn-restaurants-sp" aria-hidden="true" hidden class="list-style-none mb-0 dropdown__menu dropdown__menu--restaurants">
+								<?php get_template_part('template-parts/list', 'restaurants'); ?>
 							</ul>
 						</li>
 						<!-- Order Online -->
